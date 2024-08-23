@@ -1,0 +1,89 @@
+
+
+
+
+
+Hunt seals, sell pelts, buy upgrades.  
+Keep body temp up - slow down as you get colder, until freeze to death.
+	Temp gained by going inside igloos
+	Temp goes down faster at night
+
+
+Upgrades:
+	Snowshoes - run speed
+	Ice Skates - faster run speed
+	Thermal Vest - increase max temp
+	
+	Mittens - incease max temp, bigger snowballs
+	
+	Club - damage
+
+
+
+Music - Cold as Ice?
+
+
+
+Screen dimensions - pixels/cycles
+Horizonal - 1 char = 1 cycle
+
+Last line of top border is #49
+First line of main screen is #50
+Last line of main screen is #249
+First line of bottom border is #250 
+
+ 
+-----------------------------------------------
+ ...VBLANK           ^504/63
+
+	-------------------------------------------
+	|                ^403                     |
+	|                                         |
+	|    |--------------------------------|   | line 49 last line of border
+	|    |            ^320/40             |   | line 50 first line of screen
+	|    |                                |   |
+	|    |                                |   |
+	|    |                                |   |
+312	|284 |200                             |   |
+	|    |                                |   |
+	|    |                                |   |
+	|    |                                |   |
+ HB |    |                                | HB|
+	|    |                                |   | line 249 last line of screen
+	|    |--------------------------------|   | line 250 first line of border
+	|                                         | 
+	|                                         | 
+	-------------------------------------------
+ VBLANK...
+
+-----------------------------------------------
+
+
+Screen layout
+
+SKY		/
+SKY		|  Sun sprite, crosses screen, rises and sets as day progresses
+SKY		|	https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.AMJ1domv7FmZ5KZPGMVxvwHaEK%26pid%3DApi&f=1&ipt=260c266745b0cae60ce2cfa7ce8d344703fa539bd5f41a5b988d18c03107a684&ipo=images
+SKY		|	https://www.youtube.com/watch?v=UzdemmXhapc  (flerfer)
+SKY		|	https://www.youtube.com/watch?v=BgZa9oZDN5g 24 hr antarctic sun
+SKY		\
+HILLS	/
+HILLS	| 2 Parallax scrolls for near hills and distant mountains
+HILLS	|
+HILLS	|
+HILLS	\
+ICE		/
+ICE		| Main playing area
+ICE		|
+ICE		|   O
+ICE		|  -+-
+ICE		|   |
+ICE		|  / \
+ICE		\
+SEA		/ 
+SEA		|	Bonus penguins?
+SEA		\
+HUD		/
+HUD		|	CASH $12345			TEMP (health)
+HUD		\
+
