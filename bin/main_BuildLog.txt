@@ -1,0 +1,16 @@
+Output dir: C:\docs\repos\sealculling\bin
+parsing
+flex pass 1
+flex pass 2
+Output pass
+Writing prg file: C:\docs\repos\sealculling\bin\main.prg
+
+Memory Map
+----------
+Default-segment:
+  $0801-$080d BASIC
+  $080e-$0b13 Assembly code
+  $2000-$207f Sprite data
+
+Writing Vice symbol file: C:\docs\repos\sealculling\bin\main.vs
+Writing Symbol file: main.sym

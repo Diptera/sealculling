@@ -19,8 +19,12 @@ LABELS: {
 
 
 
-.label loirq		= $0314
-.label hiirq		= $0315
+
+.label basicloirq	= $0314
+.label basichiirq	= $0315
+
+.label loirq		= $FFFE
+.label hiirq		= $FFFF
 
 .label interruptR	= $d019
 .label interruptE	= $d01a
