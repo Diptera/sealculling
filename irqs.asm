@@ -36,11 +36,7 @@ irqinit:
 
 vblank:
 	//.break
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack
+	storestate()
 
 	lda #RED
 	sta LABELS.border
@@ -59,15 +55,12 @@ vblank:
 	lda #$01
 	sta ZP.gameloop
 
-	jmp ack
+	restorestate()
+	rti
 
 
 sky:
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack
+	storestate()
 
 	lda #LIGHT_BLUE       
 	sta LABELS.border
@@ -82,16 +75,12 @@ sky:
 	lda #$ff        // Acknowlege IRQ 
 	sta LABELS.interruptR
 
-
-	jmp ack         // Go to common code for IRQ handlers
+	restorestate()
+	rti
 
 
 hilltop1:
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack	
+	storestate()
 
   	lda #DARK_GREY
   	sta LABELS.border
@@ -122,15 +111,12 @@ hilltop1:
 	lda #[50 + [8 * 8] ]    	// Next IRQ line
 	sta LABELS.loraster
  	
-	jmp ack         // Go to common code for IRQ handlers
+	restorestate()
+	rti
 
 
 hilltop2:
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack
+	storestate()
 
   	lda #LIGHT_GREY
   	sta LABELS.border
@@ -158,15 +144,12 @@ hilltop2:
 	lda #$ff        // Acknowlege IRQ 
 	sta LABELS.interruptR
 
-	jmp ack
+	restorestate()
+	rti
 
 
 ice:
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack
+	storestate()
 
  	lda #WHITE
  	sta LABELS.border	
@@ -195,15 +178,12 @@ ice:
 	lda #$ff        // Acknowlege IRQ 
 	sta LABELS.interruptR
 
- 	jmp ack
+	restorestate()
+	rti
 
 
 ocean:
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack
+	storestate()
 
 	lda #BLUE   
 	sta LABELS.border
@@ -234,15 +214,12 @@ ocean:
 	lda #$ff        // Acknowlege IRQ 
 	sta LABELS.interruptR
 
+	restorestate()
+	rti
 
-	jmp ack
 
 hud:
-	pha        //store register A in stack
-	txa
-	pha        //store register X in stack
-	tya
-	pha        //store register Y in stack
+	storestate()
 
 	lda #BLACK
 	sta LABELS.border
@@ -257,20 +234,8 @@ hud:
 	lda #$ff        // Acknowlege IRQ 
 	sta LABELS.interruptR
 
-	jmp ack
-
-
-ack: 
-	//lda #$ff        // Acknowlege IRQ 
-	//sta LABELS.interruptR
-
-	// restore registers and rti for the mid-screen interrupts
-	pla				// pull Y
-	tay				// restore Y
-	pla				// pull X
-	tax				// restore X
-	pla				// restore A
-	
+	restorestate()
 	rti
+
 
 }

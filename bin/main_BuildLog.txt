@@ -9,7 +9,9 @@ Memory Map
 ----------
 Default-segment:
   $0801-$080d BASIC
-  $080e-$0b13 Assembly code
+  $080e-$0a62 Assembly code
+  $0a63-$0bd6 IRQs
+  $0bd7-$1a2d scrolls
   $2000-$207f Sprite data
 
 Writing Vice symbol file: C:\docs\repos\sealculling\bin\main.vs

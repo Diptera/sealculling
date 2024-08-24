@@ -1,10 +1,17 @@
 .namespace sealcullingforbeginners {
-  .label doscrollice2=$909
-  .label doscrollice=$8fe
-  .label mainloop=$867
-  .label noscrollhill2=$8f7
-  .label noscrollhill1=$8aa
-  .label noscrollice=$9a6
+  .label mainloop=$a4f
+}
+.label SCROLL=$bd7 {
+  .label scrollhill1chars=$dfb
+  .label doscrollice2=$c12
+  .label doscrollice=$c07
+  .label mainscroll=$bd7
+  .label noscrollhill2=$c00
+  .label scrollhill1colour=$c1a
+  .label noscrollhill1=$bed
+  .label scrollhill2colour=$fdc
+  .label scrollicecolour=$12ad
+  .label noscrollice=$c19
 }
 .label ZP=$2000 {
   .label gameloop=$2
@@ -21,16 +28,22 @@
   .label scrollpos_hilltop1=$4
   .label end_col_colour=$d
 }
-.label IRQ=$9af {
-  .label sky=$a01
-  .label hilltop1=$a22
-  .label hilltop2=$a57
-  .label ocean=$abb
-  .label hud=$aed
-  .label irqinit=$9af
-  .label ack=$b0e
-  .label ice=$a89
-  .label vblank=$9dc
+.label IRQ=$a63 {
+  .label sky=$ab8 {
+  }
+  .label hilltop1=$adc {
+  }
+  .label hilltop2=$b14 {
+  }
+  .label ocean=$b7e {
+  }
+  .label hud=$bb3 {
+  }
+  .label irqinit=$a63
+  .label ice=$b49 {
+  }
+  .label vblank=$a90 {
+  }
 }
 .label LABELS=$2000 {
   .label hiraster=$d011
