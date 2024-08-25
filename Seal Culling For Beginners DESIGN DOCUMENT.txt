@@ -1,6 +1,11 @@
 
 
 
+TODO
+
+scroll by isolating 3 bits, adc 01 or ff - reduce to single routine?
+
+
 
 
 Hunt seals, sell pelts, buy upgrades.  

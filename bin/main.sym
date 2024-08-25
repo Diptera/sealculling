@@ -1,55 +1,73 @@
 .namespace sealcullingforbeginners {
-  .label mainloop=$a4f
+  .label mainloop=$a6a
 }
-.label SCROLL=$bd7 {
-  .label scrollhill1chars=$dfb
-  .label doscrollice2=$c12
-  .label doscrollice=$c07
-  .label mainscroll=$bd7
-  .label noscrollhill2=$c00
-  .label scrollhill1colour=$c1a
-  .label noscrollhill1=$bed
-  .label scrollhill2colour=$fdc
-  .label scrollicecolour=$12ad
-  .label noscrollice=$c19
+.label SCROLL=$3000 {
+  .label scrollhill1charsleft=$3280
+  .label scrollhill2colourright=$4275
+  .label doscrolliceleft=$3035
+  .label mainscroll=$3000
+  .label scrollhill1colourleft=$309f
+  .label scrollleft=$3008
+  .label noscrollhill1left=$301e
+  .label noscrolliceleft=$3044
+  .label scrollright=$3049
+  .label noscrolliceright=$309a
+  .label noscrollhill1right=$3066
+  .label noscrollhill2right=$3080
+  .label scrollhill1colourright=$3eb3
+  .label scrollhill2colourleft=$3461
+  .label scrollhill1charsright=$4094
+  .label scrollicecolourleft=$3732
+  .label noscrollhill2left=$3031
+  .label doscrollice2left=$303d
+  .label scrollicecolourright=$4546
 }
 .label ZP=$2000 {
   .label gameloop=$2
   .label scrollercounteroriginal_hilltop2=$9
   .label scrollercounteroriginal_hilltop1=$6
   .label scrollercounteroriginal_ice=$c
+  .label joystick2=$e
+  .label joystick1=$f
   .label scrollpos_ice=$a
   .label scrollercounter_ice=$b
   .label general_counter=$3
   .label scrollercounter_hilltop1=$5
   .label scrollercounter_hilltop2=$8
   .label scrollpos_hilltop2=$7
-  .label NEXTVALUE=$15
+  .label scrolldirection=$d
   .label scrollpos_hilltop1=$4
-  .label end_col_colour=$d
 }
-.label IRQ=$a63 {
-  .label sky=$ab8 {
+.label JOYSTICK=$4cc7 {
+  .label actionleft=$4cdf
+  .label checkleft=$4ccc
+  .label noaction=$4cde
+  .label checkright=$4cd5
+  .label actionright=$4ce4
+  .label processjoystick=$4cc7
+}
+.label IRQ=$a81 {
+  .label sky=$ad9 {
   }
-  .label hilltop1=$adc {
+  .label hilltop1=$afd {
   }
-  .label hilltop2=$b14 {
+  .label hilltop2=$b38 {
   }
-  .label ocean=$b7e {
+  .label ocean=$ba8 {
   }
-  .label hud=$bb3 {
+  .label hud=$be0 {
   }
-  .label irqinit=$a63
-  .label ice=$b49 {
+  .label irqinit=$a81
+  .label ice=$b70 {
   }
-  .label vblank=$a90 {
+  .label vblank=$aae {
   }
 }
 .label LABELS=$2000 {
   .label hiraster=$d011
   .label sprEnableR=$d015
   .label screenram=$400
-  .label sprColour=$d027
+  .label sprcolour=$d027
   .label sprDWidthR=$d01d
   .label sprCollideSR=$d01e
   .label sprMCol2R=$d026
@@ -64,7 +82,9 @@
   .label loraster=$d012
   .label interruptE=$d01a
   .label VICbank=$dd00
+  .label joystick2=$dc00
   .label hiirq=$ffff
+  .label joystick1=$dc01
   .label basicstart=$801
   .label sprXHIbitsR=$d010
   .label viccontrol2=$d016

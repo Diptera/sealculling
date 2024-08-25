@@ -29,9 +29,6 @@
 //----------------------------------------------------------
 
 
-
-
-
 //.break
 
 // bank out BASIC and kernel
@@ -100,9 +97,9 @@ lda #$00
 bne !-
 
 // set hilltop1 (row 6-7) chars 
-lda #$2f //'/'
+lda #$e9 //'/'
 ldx #$20 //' '
-ldy #$4d //'\'
+ldy #$df //'\'
 
 .for(var i=0; i<40; i+=4) {
 	stx LABELS.screenram + 6*40 + i
@@ -110,6 +107,9 @@ ldy #$4d //'\'
 	sty LABELS.screenram + 6*40 + i + 2
 	stx LABELS.screenram + 6*40 + i + 3
 	}
+
+ldx #$a0 // reverse space
+
 .for(var i=0; i<40; i+=4) {
 	sta LABELS.screenram + 7*40 + i
 	stx LABELS.screenram + 7*40 + i + 1
@@ -117,19 +117,30 @@ ldy #$4d //'\'
 	sty LABELS.screenram + 7*40 + i + 3
 	}
 
-
 // /\
 ///  \
 
-
 // set hilltop1 colours
-lda #01
+lda #LIGHT_GREY
 .for(var j=6; j<8; j++){
 	.for(var i=0; i<40; i++) {
 		sta LABELS.screencolourram + j*40 + i
 	}
 }
 
+// Enable sprite and set pointer
+lda #$01
+sta LABELS.sprEnableR
+lda #$80
+sta LABELS.sprPointerR
+
+// initial position sprite
+lda #70
+sta LABELS.sprXLO
+lda #70
+sta LABELS.sprY
+lda #YELLOW
+sta LABELS.sprcolour
 
 
 mainloop:
@@ -140,6 +151,9 @@ mainloop:
 
 	// increase gen counter tick once per frame
 	inc ZP.general_counter
+
+	jsr JOYSTICK.processjoystick
+
 
 	jsr SCROLL.mainscroll
 
@@ -156,29 +170,31 @@ rts
 
 *=* "IRQs"
 #import "IRQs.asm"
-*=* "scrolls"
+*=$3000 "scrolls"
 #import "scroll.asm"
-
+*=* "joystick.asm"
+#import "joystick.asm"
 
 // sprite data - 21 bits high, 24 wide
 
 *=$2000 "Sprite data" // put sprite data at 8192 (128th * 64)
 
+// sun
 .byte %00000000, %01111110, %00000000
 .byte %00000011, %11111111, %11000000
 .byte %00000111, %11111111, %11100000
 .byte %00011111, %11111111, %11111000
 .byte %00011111, %11111111, %11111000
 .byte %00111111, %11111111, %11111100
-.byte %01111111, %11000111, %11111110
-.byte %01111111, %10111011, %11111110
-.byte %11111111, %01101101, %11111110
-.byte %11111110, %11000110, %11111111
-.byte %11111101, %10000011, %01111111
-.byte %11111110, %11000110, %11111111
-.byte %11111111, %01101101, %11111111
-.byte %01111111, %10111011, %11111110
-.byte %01111111, %11000111, %11111110
+.byte %01111111, %11111111, %11111110
+.byte %01111111, %11111111, %11111110
+.byte %11111111, %11111111, %11111110
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %01111111, %11111111, %11111110
+.byte %01111111, %11111111, %11111110
 .byte %00111111, %11111111, %11111100
 .byte %00011111, %11111111, %11111000
 .byte %00011111, %11111111, %11111000
@@ -186,6 +202,32 @@ rts
 .byte %00000011, %11111111, %11000000
 .byte %00000000, %01111110, %00000000
 .byte %00000000 // pad to 64 bytes
+
+// temp player
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %11111111, %11111111, %11111111
+.byte %00000000 // pad to 64 bytes
+
+
 
 .byte %00000001, %01010101, %10101010
 .byte %00000000, %01010101, %10101010

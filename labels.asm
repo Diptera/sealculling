@@ -17,7 +17,8 @@ LABELS: {
 .label loraster 	= $d012
 .label hiraster 	= $d011
 
-
+.label joystick1	= $dc01		// xxxFRLDU
+.label joystick2	= $dc00		// xxxFRLDU
 
 
 .label basicloirq	= $0314
@@ -51,7 +52,7 @@ LABELS: {
 .label sprY			= $D001 // 53249
 .label sprXHIbitsR	= $D010 // 53264
 
-.label sprColour	= $D027	// 53287
+.label sprcolour	= $D027	// 53287
 .label sprMCol1R	= $D025 // 53285
 .label sprMCol2R	= $D026	// 53286
 

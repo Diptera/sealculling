@@ -40,6 +40,7 @@ vblank:
 
 	lda #RED
 	sta LABELS.border
+  	sta LABELS.background
 
 	lda #$ff        // Acknowlege IRQ 
 	sta LABELS.interruptR
@@ -84,6 +85,8 @@ hilltop1:
 
   	lda #DARK_GREY
   	sta LABELS.border
+  	sta LABELS.background
+
 
 	// update screen hscroll
 	lda LABELS.viccontrol2
@@ -120,6 +123,7 @@ hilltop2:
 
   	lda #LIGHT_GREY
   	sta LABELS.border
+  	sta LABELS.background
 
 	// update screen hscroll
 	lda LABELS.viccontrol2
@@ -153,6 +157,7 @@ ice:
 
  	lda #WHITE
  	sta LABELS.border	
+  	sta LABELS.background
 
 	// update hscroll pos
 	lda LABELS.viccontrol2
@@ -187,6 +192,7 @@ ocean:
 
 	lda #BLUE   
 	sta LABELS.border
+  	sta LABELS.background
 
 	// temp reset hscroll until this one gets its own
 	lda LABELS.viccontrol2
@@ -223,6 +229,7 @@ hud:
 
 	lda #BLACK
 	sta LABELS.border
+  	sta LABELS.background
 
 	lda #<vblank   // Push next interrupt routine address for when we're done
 	sta LABELS.loirq

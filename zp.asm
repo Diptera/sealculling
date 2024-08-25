@@ -21,11 +21,15 @@ ZP: {
 .label scrollercounter_ice = $0b
 .label scrollercounteroriginal_ice = $0c
 
+.label scrolldirection = $0d  // 0 = left, 1 = right, ff = none
 
-.label end_col_colour = $0d  // temp holding space when scrolling colours
+.label joystick2 = $0e
+.label joystick1 = $0f
+
+
+//.label end_col_colour = $0d  // temp holding space when scrolling colours
 	//.byte $00, $00, $00, $00, $00, $00, $00
-
-.label NEXTVALUE = $15
+//.label NEXTVALUE = $15
 
 }
 
