@@ -8,12 +8,13 @@ Writing prg file: C:\docs\repos\sealculling\bin\main.prg
 Memory Map
 ----------
 Default-segment:
+  *$0002-$0011 Unnamed
   $0801-$080d BASIC
-  $080e-$0a80 Assembly code
-  $0a81-$0c06 IRQs
-  $2000-$207f Sprite data
+  $080e-$0aa7 Assembly code
+  $0aa8-$0c2d IRQs
+  $0c2e-$0c78 joystick.asm
+  $2000-$20bf Sprite data
   $3000-$4cc6 scrolls
-  $4cc7-$4ce8 joystick.asm
 
 Writing Vice symbol file: C:\docs\repos\sealculling\bin\main.vs
 Writing Symbol file: main.sym

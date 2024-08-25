@@ -1,5 +1,5 @@
 .namespace sealcullingforbeginners {
-  .label mainloop=$a6a
+  .label mainloop=$a87
 }
 .label SCROLL=$3000 {
   .label scrollhill1charsleft=$3280
@@ -22,11 +22,13 @@
   .label doscrollice2left=$303d
   .label scrollicecolourright=$4546
 }
-.label ZP=$2000 {
+.label ZP=$2 {
   .label gameloop=$2
+  .label playerx=$10
   .label scrollercounteroriginal_hilltop2=$9
   .label scrollercounteroriginal_hilltop1=$6
   .label scrollercounteroriginal_ice=$c
+  .label playery=$11
   .label joystick2=$e
   .label joystick1=$f
   .label scrollpos_ice=$a
@@ -38,29 +40,32 @@
   .label scrolldirection=$d
   .label scrollpos_hilltop1=$4
 }
-.label JOYSTICK=$4cc7 {
-  .label actionleft=$4cdf
-  .label checkleft=$4ccc
-  .label noaction=$4cde
-  .label checkright=$4cd5
-  .label actionright=$4ce4
-  .label processjoystick=$4cc7
+.label JOYSTICK=$c2e {
+  .label actionleft=$c48
+  .label checkleft=$c33
+  .label noaction=$c45
+  .label checkright=$c3c
+  .label moveplayerright=$c71
+  .label actionright=$c5e
+  .label processjoystick=$c2e
+  .label moveplayerleft=$c5b
+  .label endjoystick=$c74
 }
-.label IRQ=$a81 {
-  .label sky=$ad9 {
+.label IRQ=$aa8 {
+  .label sky=$b00 {
   }
-  .label hilltop1=$afd {
+  .label hilltop1=$b24 {
   }
-  .label hilltop2=$b38 {
+  .label hilltop2=$b5f {
   }
-  .label ocean=$ba8 {
+  .label ocean=$bcf {
   }
-  .label hud=$be0 {
+  .label hud=$c07 {
   }
-  .label irqinit=$a81
-  .label ice=$b70 {
+  .label irqinit=$aa8
+  .label ice=$b97 {
   }
-  .label vblank=$aae {
+  .label vblank=$ad5 {
   }
 }
 .label LABELS=$2000 {

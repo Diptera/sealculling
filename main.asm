@@ -129,18 +129,39 @@ lda #LIGHT_GREY
 }
 
 // Enable sprite and set pointer
-lda #$01
+// sun
+lda LABELS.sprEnableR
+ora #%00000001
 sta LABELS.sprEnableR
 lda #$80
 sta LABELS.sprPointerR
 
-// initial position sprite
+// player
+lda LABELS.sprEnableR
+ora #%00000010
+sta LABELS.sprEnableR
+lda #$81
+sta LABELS.sprPointerR + 1
+
+
+
+// initial position sprites
+//sun
 lda #70
 sta LABELS.sprXLO
 lda #70
 sta LABELS.sprY
 lda #YELLOW
 sta LABELS.sprcolour
+
+//player
+lda #100
+sta ZP.playerx
+lda #150
+sta ZP.playery
+lda #BLACK
+sta LABELS.sprcolour + 1
+
 
 
 mainloop:
@@ -151,6 +172,12 @@ mainloop:
 
 	// increase gen counter tick once per frame
 	inc ZP.general_counter
+
+	// draw player
+	lda ZP.playerx
+	sta [LABELS.sprXLO + 2]
+	lda ZP.playery
+	sta [LABELS.sprY + 2]
 
 	jsr JOYSTICK.processjoystick
 
@@ -170,10 +197,10 @@ rts
 
 *=* "IRQs"
 #import "IRQs.asm"
-*=$3000 "scrolls"
-#import "scroll.asm"
 *=* "joystick.asm"
 #import "joystick.asm"
+*=$3000 "scrolls"
+#import "scroll.asm"
 
 // sprite data - 21 bits high, 24 wide
 
