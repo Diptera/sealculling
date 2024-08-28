@@ -1,4 +1,5 @@
 Output dir: C:\docs\repos\sealculling\bin
+User Arguments: afo=true
 parsing
 flex pass 1
 flex pass 2
@@ -14,8 +15,10 @@ Default-segment:
   $0df9-$0f7e IRQs
   $0f7f-$0fc9 joystick.asm
   $2000-$20bf Sprite data
-  $3000-$3735 scrolls
-  $3736-$4c9c scrollleft
+  $3000-$309c scrolls
+  $309d-$327d scrollhill1charsleft
+  $327e-$354e scrollhill2colourleft
+  $354f-$4183 scrollleft
   $5000-$57ff Map ice
 
 Writing Vice symbol file: C:\docs\repos\sealculling\bin\main.vs

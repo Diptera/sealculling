@@ -27,8 +27,7 @@ SCROLL: {
 	lda #$07						// reset hscroll to 7
 	sta ZP.scrollpos_hilltop1
 
-	// scroll the colour data
-	jsr scrollhill1colourleft
+	// scroll the char data
 	jsr scrollhill1charsleft
 
 	noscrollhill1left:
@@ -66,11 +65,13 @@ SCROLL: {
 
 	doscrollice2left:
 	lda #$07						// reset hscroll to 7
-	inc ZP.mapicepos				// inc current map location
 	sta ZP.scrollpos_ice
+	inc ZP.mapicepos				// inc current map location
 	
 	// scroll the colour data
-	jsr scrollicecolourleft
+	//jsr scrollicecolourleft
+	// scroll the ice chars
+	jsr redrawicechars
 
 	noscrolliceleft:
 
@@ -103,7 +104,7 @@ SCROLL: {
 	sta ZP.scrollpos_hilltop1
 
 	// scroll the colour data
-	jsr scrollhill1colourright
+	//jsr scrollhill1colourright
 	jsr scrollhill1charsright
 
 	noscrollhill1right:
@@ -149,11 +150,11 @@ SCROLL: {
 
 	//doscrollice2right:
 	lda #$00						// reset hscroll to 0
-	dec ZP.mapicepos				// inc current map location
 	sta ZP.scrollpos_ice
-	
-	// scroll the colour data
-	jsr scrollicecolourright
+	dec ZP.mapicepos				// dec current map location
+
+	// scroll that char data
+	jsr redrawicechars
 
 	noscrolliceright:
 
@@ -171,21 +172,9 @@ SCROLL: {
 
 
 // scroll LEFT
-	scrollhill1colourleft:
-
-	.for(var j=6; j<8; j++) {
-		ldy LABELS.screencolourram + j*40
-		.for(var i=1; i<40; i++) {
-			lda LABELS.screencolourram + j*40 + i
-			sta LABELS.screencolourram + j*40 + i - 1
-		}
-		sty LABELS.screencolourram + j * 40 + 39
-	}
-
-	rts
 
 	scrollhill1charsleft:
-
+*=* "scrollhill1charsleft"
 	.for(var j=6; j<8; j++) {
 		ldy LABELS.screenram + j*40
 		.for(var i=1; i<40; i++) {
@@ -194,12 +183,11 @@ SCROLL: {
 		}
 		sty LABELS.screenram + j * 40 + 39
 	}
-
 	rts
 
 
 	scrollhill2colourleft:
-
+*=* "scrollhill2colourleft"
 	.for(var j=8; j<11; j++) {
 		ldy LABELS.screencolourram + j*40
 		.for(var i=1; i<40; i++) {
@@ -212,23 +200,14 @@ SCROLL: {
 	rts
 
 
-	scrollicecolourleft:
 
-//	.for(var j=11; j<19; j++) {
-//		ldy LABELS.screencolourram + j*40
-//		.for(var i=1; i<40; i++) {
-//			lda LABELS.screencolourram + j*40 + i
-//			sta LABELS.screencolourram + j*40 + i - 1
-//		}
-//		sty LABELS.screencolourram + j * 40 + 39
-//	}
-
+	redrawicechars:
 	scrollicecharsleft:
 *=* "scrollleft"
 	ldx ZP.mapicepos
 	.for(var j=11; j<19; j++) {
 		//ldy LABELS.screenram + j*40
-		.for(var i=01; i<40; i++) {
+		.for(var i=00; i<40; i++) {
 			//ldx #ZP.mapicepos
 			lda [mapice + [[j-11]*256] + i], x  //TODO - indexed x
 			sta LABELS.screenram + j*40 + i
@@ -236,25 +215,11 @@ SCROLL: {
 		//sty LABELS.screenram + j * 40 + 39
 	}
 
-
-
 	rts
 
 
 
 // scroll RIGHT
-	scrollhill1colourright:
-
-	.for(var j=6; j<8; j++) {
-		ldy LABELS.screencolourram + j*40 + 39
-		.for(var i=38; i>-1; i--) {
-			lda LABELS.screencolourram + j*40 + i
-			sta LABELS.screencolourram + j*40 + i + 1
-		}
-		sty LABELS.screencolourram + j * 40 + 0
-	}
-
-	rts
 
 	scrollhill1charsright:
 
@@ -281,21 +246,6 @@ SCROLL: {
 		sty LABELS.screencolourram + j * 40 + 0
 	}
 
-
-
-	rts
-
-
-	scrollicecolourright:
-
-	.for(var j=11; j<19; j++) {
-		ldy LABELS.screencolourram + j*40 + 39
-		.for(var i=38; i>-1; i--) {
-			lda LABELS.screencolourram + j*40 + i
-			sta LABELS.screencolourram + j*40 + i + 1
-		}
-		sty LABELS.screencolourram + j * 40 + 0
-	}
 
 
 	rts
