@@ -16,7 +16,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x66cb70b4
+random seed was: 0x66cec755
 command line was: x64sc -logfile C:\docs\repos\sealculling/bin/main_ViceLog.txt -moncommands C:\docs\repos\sealculling/bin/main.vs C:\docs\repos\sealculling/bin/main.prg
 VICE system file directory: C:\C64\Tools\Vice\bin\...
 Loading system file `C:\C64\Tools\Vice\bin\..\C64\kernal-901227-03.bin'.
@@ -85,22 +85,22 @@ Error - no CRT header found.
 CART: 'C:\docs\repos\sealculling/bin/main.prg' is not a valid CRT file.
 AUTOSTART: Loading PRG file `C:\docs\repos\sealculling/bin/main.prg' with direct RAM injection.
 AUTOSTART: Resetting the machine to autostart '*'
-VIC-II: VSP Bug: safe channels are: 1347. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 247. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `C:\docs\repos\sealculling/bin/main.prg' recognized as program/p00 file.
 Monitor playback command: al C:2 .gameloop
-Monitor playback command: al C:3280 .scrollhill1charsleft
-Monitor playback command: al C:c2e .JOYSTICK
+Monitor playback command: al C:3284 .scrollhill1charsleft
+Monitor playback command: al C:f7f .JOYSTICK
 Monitor playback command: al C:9 .scrollercounteroriginal_hilltop2
 Monitor playback command: al C:6 .scrollercounteroriginal_hilltop1
-Monitor playback command: al C:b97 .ice
+Monitor playback command: al C:ee8 .ice
 Monitor playback command: al C:c .scrollercounteroriginal_ice
-Monitor playback command: al C:c74 .endjoystick
-Monitor playback command: al C:3066 .noscrollhill1right
+Monitor playback command: al C:fc5 .endjoystick
+Monitor playback command: al C:3068 .noscrollhill1right
 Monitor playback command: al C:d01d .sprDWidthR
-Monitor playback command: al C:3461 .scrollhill2colourleft
+Monitor playback command: al C:3465 .scrollhill2colourleft
 Monitor playback command: al C:d01e .sprCollideSR
-Monitor playback command: al C:aa8 .irqinit
+Monitor playback command: al C:df9 .irqinit
 Monitor playback command: al C:d026 .sprMCol2R
 Monitor playback command: al C:d000 .sprXLO
 Monitor playback command: al C:2000 .LABELS
@@ -108,74 +108,77 @@ Monitor playback command: al C:303d .doscrollice2left
 Monitor playback command: al C:d .scrolldirection
 Monitor playback command: al C:d020 .border
 Monitor playback command: al C:fffe .loirq
-Monitor playback command: al C:b00 .sky
+Monitor playback command: al C:e51 .sky
 Monitor playback command: al C:314 .basicloirq
 Monitor playback command: al C:315 .basichiirq
 Monitor playback command: al C:10 .playerx
+Monitor playback command: al C:5000 .mapice
 Monitor playback command: al C:d019 .interruptR
 Monitor playback command: al C:d01f .sprCollideBR
-Monitor playback command: al C:c71 .moveplayerright
+Monitor playback command: al C:fc2 .moveplayerright
 Monitor playback command: al C:3000 .mainscroll
 Monitor playback command: al C:d012 .loraster
 Monitor playback command: al C:d01a .interruptE
 Monitor playback command: al C:3008 .scrollleft
-Monitor playback command: al C:3044 .noscrolliceleft
-Monitor playback command: al C:c5b .moveplayerleft
+Monitor playback command: al C:3046 .noscrolliceleft
+Monitor playback command: al C:fac .moveplayerleft
+Monitor playback command: al C:3736 .scrollicecharsleft
 Monitor playback command: al C:11 .playery
 Monitor playback command: al C:ffff .hiirq
 Monitor playback command: al C:d010 .sprXHIbitsR
 Monitor playback command: al C:d016 .viccontrol2
-Monitor playback command: al C:bcf .ocean
-Monitor playback command: al C:c3c .checkright
+Monitor playback command: al C:f20 .ocean
+Monitor playback command: al C:f8d .checkright
 Monitor playback command: al C:3000 .SCROLL
 Monitor playback command: al C:d021 .background
 Monitor playback command: al C:2 .ZP
+Monitor playback command: al C:12 .mapicepos
 Monitor playback command: al C:d800 .screencolourram
 Monitor playback command: al C:d011 .hiraster
-Monitor playback command: al C:c33 .checkleft
-Monitor playback command: al C:4275 .scrollhill2colourright
+Monitor playback command: al C:f84 .checkleft
+Monitor playback command: al C:424b .scrollhill2colourright
 Monitor playback command: al C:d015 .sprEnableR
 Monitor playback command: al C:400 .screenram
 Monitor playback command: al C:d027 .sprcolour
-Monitor playback command: al C:aa8 .IRQ
-Monitor playback command: al C:309f .scrollhill1colourleft
-Monitor playback command: al C:c5e .actionright
-Monitor playback command: al C:3049 .scrollright
-Monitor playback command: al C:309a .noscrolliceright
-Monitor playback command: al C:c48 .actionleft
-Monitor playback command: al C:a87 .mainloop
+Monitor playback command: al C:df9 .IRQ
+Monitor playback command: al C:30a3 .scrollhill1colourleft
+Monitor playback command: al C:faf .actionright
+Monitor playback command: al C:304b .scrollright
+Monitor playback command: al C:309e .noscrolliceright
+Monitor playback command: al C:f99 .actionleft
+Monitor playback command: al C:dd8 .mainloop
 Monitor playback command: al C:5 .scrollercounter_hilltop1
-Monitor playback command: al C:3732 .scrollicecolourleft
+Monitor playback command: al C:3736 .scrollicecolourleft
 Monitor playback command: al C:8 .scrollercounter_hilltop2
 Monitor playback command: al C:7 .scrollpos_hilltop2
 Monitor playback command: al C:4 .scrollpos_hilltop1
-Monitor playback command: al C:b24 .hilltop1
-Monitor playback command: al C:b5f .hilltop2
+Monitor playback command: al C:e75 .hilltop1
+Monitor playback command: al C:eb0 .hilltop2
 Monitor playback command: al C:d017 .sprDHeightR
 Monitor playback command: al C:3035 .doscrolliceleft
 Monitor playback command: al C:301e .noscrollhill1left
 Monitor playback command: al C:dd00 .VICbank
 Monitor playback command: al C:dc00 .joystick2__0
 Monitor playback command: al C:e .joystick2__1
-Monitor playback command: al C:ad5 .vblank
+Monitor playback command: al C:e26 .vblank
 Monitor playback command: al C:dc01 .joystick1__0
 Monitor playback command: al C:f .joystick1__1
 Monitor playback command: al C:801 .basicstart
 Monitor playback command: al C:7f8 .sprPointerR
-Monitor playback command: al C:3080 .noscrollhill2right
-Monitor playback command: al C:3eb3 .scrollhill1colourright
+Monitor playback command: al C:3082 .noscrollhill2right
+Monitor playback command: al C:3e89 .scrollhill1colourright
 Monitor playback command: al C:d001 .sprY
 Monitor playback command: al C:d01b .sprPriorityR
 Monitor playback command: al C:a .scrollpos_ice
-Monitor playback command: al C:c45 .noaction
+Monitor playback command: al C:f96 .noaction
 Monitor playback command: al C:b .scrollercounter_ice
-Monitor playback command: al C:c07 .hud
+Monitor playback command: al C:f58 .hud
 Monitor playback command: al C:d025 .sprMCol1R
-Monitor playback command: al C:4094 .scrollhill1charsright
+Monitor playback command: al C:406a .scrollhill1charsright
 Monitor playback command: al C:3 .general_counter
-Monitor playback command: al C:c2e .processjoystick
+Monitor playback command: al C:f7f .processjoystick
 Monitor playback command: al C:3031 .noscrollhill2left
-Monitor playback command: al C:4546 .scrollicecolourright
+Monitor playback command: al C:451c .scrollicecolourright
 Monitor playback command: al C:d01c .sprMultiColR
 Closed monitor command playback file: C:\docs\repos\sealculling/bin/main.vs
 Main CPU: RESET.
@@ -183,7 +186,7 @@ Sound: Opened device `dx', speed 48000Hz, fragment size 2.67ms, buffer size 32.0
 reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
 Sync reset
 Unit 8: RESET.
-AUTOSTART: Injecting program data at $0801 (size $44c6)
+AUTOSTART: Injecting program data at $0801 (size $4fff)
 AUTOSTART: Ready
 AUTOSTART: Turning Warp mode off.
 AUTOSTART: Starting program.
@@ -226,6 +229,6 @@ VICE thread initiating shutdown
 VICE thread is exiting
 VICE thread has been joined.
 Writing configuration file `C:\Users\Diptera\AppData\Roaming\vice\vice.ini'.
-VIC-II: VSP Bug: safe channels are: 145. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 1347. Emulation of memory corruption is disabled.
 Sound: Closing device `dx'
 Hotkeys: shutting down.

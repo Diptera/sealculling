@@ -66,6 +66,7 @@ SCROLL: {
 
 	doscrollice2left:
 	lda #$07						// reset hscroll to 7
+	inc ZP.mapicepos				// inc current map location
 	sta ZP.scrollpos_ice
 	
 	// scroll the colour data
@@ -148,6 +149,7 @@ SCROLL: {
 
 	//doscrollice2right:
 	lda #$00						// reset hscroll to 0
+	dec ZP.mapicepos				// inc current map location
 	sta ZP.scrollpos_ice
 	
 	// scroll the colour data
@@ -212,14 +214,29 @@ SCROLL: {
 
 	scrollicecolourleft:
 
+//	.for(var j=11; j<19; j++) {
+//		ldy LABELS.screencolourram + j*40
+//		.for(var i=1; i<40; i++) {
+//			lda LABELS.screencolourram + j*40 + i
+//			sta LABELS.screencolourram + j*40 + i - 1
+//		}
+//		sty LABELS.screencolourram + j * 40 + 39
+//	}
+
+	scrollicecharsleft:
+*=* "scrollleft"
+	ldx ZP.mapicepos
 	.for(var j=11; j<19; j++) {
-		ldy LABELS.screencolourram + j*40
-		.for(var i=1; i<40; i++) {
-			lda LABELS.screencolourram + j*40 + i
-			sta LABELS.screencolourram + j*40 + i - 1
+		//ldy LABELS.screenram + j*40
+		.for(var i=01; i<40; i++) {
+			//ldx #ZP.mapicepos
+			lda [mapice + [[j-11]*256] + i], x  //TODO - indexed x
+			sta LABELS.screenram + j*40 + i
 		}
-		sty LABELS.screencolourram + j * 40 + 39
+		//sty LABELS.screenram + j * 40 + 39
 	}
+
+
 
 	rts
 

@@ -59,6 +59,9 @@ lda #02
 sta ZP.scrollercounter_ice
 sta ZP.scrollercounteroriginal_ice
 
+lda #$88
+sta ZP.mapicepos
+
 jsr IRQ.irqinit
 
 
@@ -127,6 +130,24 @@ lda #LIGHT_GREY
 		sta LABELS.screencolourram + j*40 + i
 	}
 }
+
+
+
+jsr SCROLL.scrollicecharsleft
+
+// set ice colours
+lda #BLACK
+.for(var j=12; j<19; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screencolourram + j*40 + i
+	}
+}
+
+
+
+
+
+
 
 // Enable sprite and set pointer
 // sun
@@ -282,3 +303,4 @@ rts
 
 //----------------------------------------------------------
 
+#import "map.asm"

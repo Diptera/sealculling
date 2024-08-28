@@ -1,26 +1,28 @@
 .namespace sealcullingforbeginners {
-  .label mainloop=$a87
+  .label mainloop=$dd8
 }
+.label mapice=$5000
 .label SCROLL=$3000 {
-  .label scrollhill1charsleft=$3280
-  .label scrollhill2colourright=$4275
+  .label scrollhill1charsleft=$3284
+  .label scrollhill2colourright=$424b
   .label doscrolliceleft=$3035
   .label mainscroll=$3000
-  .label scrollhill1colourleft=$309f
+  .label scrollhill1colourleft=$30a3
   .label scrollleft=$3008
   .label noscrollhill1left=$301e
-  .label noscrolliceleft=$3044
-  .label scrollright=$3049
-  .label noscrolliceright=$309a
-  .label noscrollhill1right=$3066
-  .label noscrollhill2right=$3080
-  .label scrollhill1colourright=$3eb3
-  .label scrollhill2colourleft=$3461
-  .label scrollhill1charsright=$4094
-  .label scrollicecolourleft=$3732
+  .label noscrolliceleft=$3046
+  .label scrollicecharsleft=$3736
+  .label scrollright=$304b
+  .label noscrolliceright=$309e
+  .label noscrollhill1right=$3068
+  .label noscrollhill2right=$3082
+  .label scrollhill1colourright=$3e89
+  .label scrollhill2colourleft=$3465
+  .label scrollhill1charsright=$406a
+  .label scrollicecolourleft=$3736
   .label noscrollhill2left=$3031
   .label doscrollice2left=$303d
-  .label scrollicecolourright=$4546
+  .label scrollicecolourright=$451c
 }
 .label ZP=$2 {
   .label gameloop=$2
@@ -36,36 +38,37 @@
   .label general_counter=$3
   .label scrollercounter_hilltop1=$5
   .label scrollercounter_hilltop2=$8
+  .label mapicepos=$12
   .label scrollpos_hilltop2=$7
   .label scrolldirection=$d
   .label scrollpos_hilltop1=$4
 }
-.label JOYSTICK=$c2e {
-  .label actionleft=$c48
-  .label checkleft=$c33
-  .label noaction=$c45
-  .label checkright=$c3c
-  .label moveplayerright=$c71
-  .label actionright=$c5e
-  .label processjoystick=$c2e
-  .label moveplayerleft=$c5b
-  .label endjoystick=$c74
+.label JOYSTICK=$f7f {
+  .label actionleft=$f99
+  .label checkleft=$f84
+  .label noaction=$f96
+  .label checkright=$f8d
+  .label moveplayerright=$fc2
+  .label actionright=$faf
+  .label processjoystick=$f7f
+  .label moveplayerleft=$fac
+  .label endjoystick=$fc5
 }
-.label IRQ=$aa8 {
-  .label sky=$b00 {
+.label IRQ=$df9 {
+  .label sky=$e51 {
   }
-  .label hilltop1=$b24 {
+  .label hilltop1=$e75 {
   }
-  .label hilltop2=$b5f {
+  .label hilltop2=$eb0 {
   }
-  .label ocean=$bcf {
+  .label ocean=$f20 {
   }
-  .label hud=$c07 {
+  .label hud=$f58 {
   }
-  .label irqinit=$aa8
-  .label ice=$b97 {
+  .label irqinit=$df9
+  .label ice=$ee8 {
   }
-  .label vblank=$ad5 {
+  .label vblank=$e26 {
   }
 }
 .label LABELS=$2000 {

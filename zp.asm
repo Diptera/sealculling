@@ -47,6 +47,10 @@ playerx:
 	.byte 0
 playery:
 	.byte 0
+
+mapicepos:
+	.byte 0
+
 	
 
 }
