@@ -21,8 +21,8 @@ LABELS: {
 .label joystick2	= $dc00		// xxxFRLDU
 
 
-.label basicloirq	= $0314
-.label basichiirq	= $0315
+//.label basicloirq	= $0314  // only if kernal banked in, else FFFE FFFF
+//.label basichiirq	= $0315
 
 .label loirq		= $FFFE
 .label hiirq		= $FFFF
@@ -48,7 +48,7 @@ LABELS: {
 //----------------------------------------------------------
 //				SPRITE labels
 //----------------------------------------------------------
-.label sprPointerR	= $43f8  //   $07F8 // 2040
+.label sprPointerR	= screenram + 1016  //    $43f8  //   $07F8 // 2040
 .label sprEnableR	= $D015	// 53269
 
 .label sprXLO		= $D000	// 53248

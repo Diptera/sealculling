@@ -32,8 +32,8 @@ dd00 (CIA2) - VIC bank
 
 
 screen ram $4000-$43ff
-sprite pointers -  1016 bytes after start of screen ram
-charset 4800 - 57ff
+sprite pointers - $43f8   1016 bytes after start of screen ram
+charset 4800 - 4fff  (first 256 chars only, else 57ff)
 
 
 

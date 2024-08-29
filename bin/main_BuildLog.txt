@@ -10,14 +10,15 @@ Memory Map
 Default-segment:
   *$0002-$0012 Unnamed
   $0801-$080d BASIC
-  $080e-$0f00 Assembly code
-  $0f01-$1086 IRQs
-  $1087-$10d1 joystick.asm
-  $10d2-$116e scrolls
-  $116f-$134f scrollhill1charsleft
-  $1350-$1620 scrollhill2colourleft
-  $1621-$2255 scrollleft
-  $4800-$57ff charset
+  $080e-$0831 Assembly code
+  $0832-$0ed3 Init
+  $0ed4-$1059 IRQs
+  $105a-$10a4 joystick.asm
+  $10a5-$1141 scrolls
+  $1142-$1322 scrollhill1charsleft
+  $1323-$15f3 scrollhill2colourleft
+  $15f4-$2228 scrollleft
+  $4800-$4fff charset
   $6000-$60bf Sprite data
   $7000-$77ff Map ice
 
