@@ -1,7 +1,7 @@
 // mapdata
 
 
-*=$5000 "Map ice"
+*=$7000 "Map ice"
 
 .encoding "screencode_upper"
 

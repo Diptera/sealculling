@@ -1,25 +1,27 @@
 .namespace sealcullingforbeginners {
-  .label mainloop=$dd8
+  .label ccinner=$81c
+  .label mainloop=$ee0
+  .label nocopychars=$87f
 }
-.label mapice=$5000
-.label SCROLL=$3000 {
-  .label scrollhill1charsleft=$309d
-  .label scrollhill2colourright=$3eb3
-  .label doscrolliceleft=$3032
-  .label mainscroll=$3000
-  .label scrollleft=$3008
-  .label noscrollhill1left=$301b
-  .label noscrolliceleft=$3043
-  .label scrollicecharsleft=$354f
-  .label scrollright=$3048
-  .label noscrolliceright=$3098
-  .label noscrollhill1right=$3062
-  .label noscrollhill2right=$307c
-  .label scrollhill2colourleft=$327e
-  .label scrollhill1charsright=$3cd2
-  .label noscrollhill2left=$302e
-  .label doscrollice2left=$303a
-  .label redrawicechars=$354f
+.label mapice=$7000
+.label SCROLL=$10d2 {
+  .label scrollhill1charsleft=$116f
+  .label scrollhill2colourright=$1f85
+  .label doscrolliceleft=$1104
+  .label mainscroll=$10d2
+  .label scrollleft=$10da
+  .label noscrollhill1left=$10ed
+  .label noscrolliceleft=$1115
+  .label scrollicecharsleft=$1621
+  .label scrollright=$111a
+  .label noscrolliceright=$116a
+  .label noscrollhill1right=$1134
+  .label noscrollhill2right=$114e
+  .label scrollhill2colourleft=$1350
+  .label scrollhill1charsright=$1da4
+  .label noscrollhill2left=$1100
+  .label doscrollice2left=$110c
+  .label redrawicechars=$1621
 }
 .label ZP=$2 {
   .label gameloop=$2
@@ -40,38 +42,38 @@
   .label scrolldirection=$d
   .label scrollpos_hilltop1=$4
 }
-.label JOYSTICK=$f7f {
-  .label actionleft=$f99
-  .label checkleft=$f84
-  .label noaction=$f96
-  .label checkright=$f8d
-  .label moveplayerright=$fc2
-  .label actionright=$faf
-  .label processjoystick=$f7f
-  .label moveplayerleft=$fac
-  .label endjoystick=$fc5
+.label JOYSTICK=$1087 {
+  .label actionleft=$10a1
+  .label checkleft=$108c
+  .label noaction=$109e
+  .label checkright=$1095
+  .label moveplayerright=$10ca
+  .label actionright=$10b7
+  .label processjoystick=$1087
+  .label moveplayerleft=$10b4
+  .label endjoystick=$10cd
 }
-.label IRQ=$df9 {
-  .label sky=$e51 {
+.label IRQ=$f01 {
+  .label sky=$f59 {
   }
-  .label hilltop1=$e75 {
+  .label hilltop1=$f7d {
   }
-  .label hilltop2=$eb0 {
+  .label hilltop2=$fb8 {
   }
-  .label ocean=$f20 {
+  .label ocean=$1028 {
   }
-  .label hud=$f58 {
+  .label hud=$1060 {
   }
-  .label irqinit=$df9
-  .label ice=$ee8 {
+  .label irqinit=$f01
+  .label ice=$ff0 {
   }
-  .label vblank=$e26 {
+  .label vblank=$f2e {
   }
 }
 .label LABELS=$2000 {
   .label hiraster=$d011
   .label sprEnableR=$d015
-  .label screenram=$400
+  .label screenram=$4000
   .label sprcolour=$d027
   .label sprDWidthR=$d01d
   .label sprCollideSR=$d01e
@@ -81,6 +83,7 @@
   .label loirq=$fffe
   .label basicloirq=$314
   .label basichiirq=$315
+  .label vicmemory=$d018
   .label interruptR=$d019
   .label sprDHeightR=$d017
   .label sprCollideBR=$d01f
@@ -93,7 +96,7 @@
   .label basicstart=$801
   .label sprXHIbitsR=$d010
   .label viccontrol2=$d016
-  .label sprPointerR=$7f8
+  .label sprPointerR=$43f8
   .label sprY=$d001
   .label sprPriorityR=$d01b
   .label background=$d021

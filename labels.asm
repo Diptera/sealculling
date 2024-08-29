@@ -8,7 +8,7 @@ LABELS: {
 //.const 			irqpointer = $0314
 //----------------------------------------------------------
 
-.label screenram	= $0400
+.label screenram	= $4000  // $0400
 .label screencolourram = $d800
 
 .label border 		= $d020
@@ -42,10 +42,13 @@ LABELS: {
 								// bit4 multicolour mode
 								// default %11001000
 
+.label vicmemory 	= $d018
+
+
 //----------------------------------------------------------
 //				SPRITE labels
 //----------------------------------------------------------
-.label sprPointerR	= $07F8 // 2040
+.label sprPointerR	= $43f8  //   $07F8 // 2040
 .label sprEnableR	= $D015	// 53269
 
 .label sprXLO		= $D000	// 53248

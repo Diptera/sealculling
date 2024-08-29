@@ -6,8 +6,34 @@ TODO
 scroll by isolating 3 bits, adc 01 or ff - reduce to single routine?
 
 
-d800 + (11 * 40) + 4
-`	d98d  changes @ 3452
+d800 (55296) + (11 * 40) + 4
+`	d9bc  
+
+
+d800	0
+d828	1
+d850	2
+d878	3
+d8a0	4
+d8c8	5
+d8f0	6
+d918	7
+
+d940	8
+d968	9
+d990	10
+
+d9b8	11
+
+
+d018 VIC memory setup - bank for charmem and screenmem
+d800 colour ram
+dd00 (CIA2) - VIC bank
+
+
+screen ram $4000-$43ff
+sprite pointers -  1016 bytes after start of screen ram
+charset 4800 - 57ff
 
 
 

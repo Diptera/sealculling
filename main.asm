@@ -31,6 +31,64 @@
 
 //.break
 
+
+sei
+// copy rom charset  to 4800
+// make char rom visible
+lda $01
+and #%11111000
+ora #%00000011
+sta $01
+
+
+// copy the chars
+
+jmp nocopychars
+
+ldx #$ff
+ccinner:
+	lda $d000,x
+	sta $4800,x
+	lda $d100,x
+	sta $4900,x
+	lda $d200,x
+	sta $4a00,x
+	lda $d300,x
+	sta $4b00,x
+	lda $d400,x
+	sta $4c00,x
+	lda $d500,x
+	sta $4d00,x
+	lda $d600,x
+	sta $4e00,x
+	lda $d700,x
+	sta $4f00,x
+	lda $d800,x
+	sta $5000,x
+	lda $d900,x
+	sta $5100,x
+	lda $da00,x
+	sta $5200,x
+	lda $db00,x
+	sta $5300,x
+	lda $dc00,x
+	sta $5400,x
+	lda $dd00,x
+	sta $5500,x
+	lda $de00,x
+	sta $5600,x
+	lda $df00,x
+	sta $5700,x
+
+	dex
+	bne ccinner
+
+nocopychars:
+
+
+//.break
+
+
 // bank out BASIC and kernel
 //.break
 lda $01
@@ -38,6 +96,29 @@ and #%11111000
 ora #%00000101
 sta $01
 
+
+// set VIC Bank 01  (4000-7FFF)
+lda $DD00
+and #%11111100
+ora #%00000010
+sta $dd00
+
+// set screen address
+lda LABELS.vicmemory
+and	#%00001111
+ora #%00000000	// screen ram in first bank  $4000-$43ff
+sta LABELS.vicmemory
+
+// set character memory
+lda LABELS.vicmemory
+and	#%11110001
+ora #%00000010	// char ram in first bank  $4800-$4fff
+sta LABELS.vicmemory
+
+
+
+
+//.break
 
 
 // default values
@@ -63,6 +144,8 @@ lda #$88
 sta ZP.mapicepos
 
 jsr IRQ.irqinit
+
+cli
 
 
 //.break
@@ -137,7 +220,7 @@ jsr SCROLL.scrollicecharsleft
 
 // set ice colours
 lda #BLACK
-.for(var j=12; j<19; j++){
+.for(var j=11; j<19; j++){
 	.for(var i=0; i<40; i++) {
 		sta LABELS.screencolourram + j*40 + i
 	}
@@ -220,12 +303,16 @@ rts
 #import "IRQs.asm"
 *=* "joystick.asm"
 #import "joystick.asm"
-*=$3000 "scrolls"
+*=* "scrolls"
 #import "scroll.asm"
+
+
+*=$4800 "charset"
+.import binary "sealset4.bin"
 
 // sprite data - 21 bits high, 24 wide
 
-*=$2000 "Sprite data" // put sprite data at 8192 (128th * 64)
+*=$6000 "Sprite data" // put sprite data at 8192 (128th * 64)
 
 // sun
 .byte %00000000, %01111110, %00000000
