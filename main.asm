@@ -91,6 +91,50 @@ mainloop:
 	lda suny, x
 	sta LABELS.sprY
 
+	// change sky colour at certain points
+	lda ZP.sunpos
+	cmp #$E0
+	bne skycolcheck2
+	lda #DARK_GREY
+	jmp setskycol
+	skycolcheck2:
+	cmp #$F0
+	bne skycolcheck3
+	lda #BLUE
+	jmp setskycol
+	skycolcheck3:
+	cmp #$00
+	bne skycolcheck4
+	lda #PURPLE
+	jmp setskycol
+	skycolcheck4:
+	cmp #$10
+	bne skycolcheck5
+	lda #LIGHT_BLUE
+	jmp setskycol
+	skycolcheck5:
+	cmp #$80
+	bne skycolcheck6
+	lda #PURPLE
+	jmp setskycol
+	skycolcheck6:
+	cmp #$90
+	bne skycolcheck7
+	lda #BLUE
+	jmp setskycol
+	skycolcheck7:
+	cmp #$a0
+	bne skycolcheck8
+	lda #DARK_GREY
+	jmp setskycol
+	skycolcheck8:
+	cmp #$b0
+	bne nomovesun
+	lda #BLACK
+	setskycol:
+	sta IRQ.skycol + 1
+
+ //black  dg  db purp      lb    purp  db   dg  purple    black
 
 	nomovesun:
 
@@ -197,6 +241,33 @@ sunmsb:
 .byte %00000000 // pad to 64 bytes
 
 
+// temp cloud
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00011000, %00000000, %00000000
+.byte %01111110, %00111000, %00011000
+.byte %00111111, %11111110, %11111110
+.byte %01111111, %11111111, %11111100
+.byte %11111111, %11111111, %11111111
+.byte %00111110, %01111100, %00111110
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000	// pad to 64 bytes
+
+
+
+
 
 .byte %00000001, %01010101, %10101010
 .byte %00000000, %01010101, %10101010
@@ -220,6 +291,33 @@ sunmsb:
 .byte %10101010, %11111111, %00000000
 .byte %10101010, %11111111, %00000000
 .byte %00000000	// pad to 64 bytes
+
+
+
+// blank sprite
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000, %00000000, %00000000
+.byte %00000000	// pad to 64 bytes
+
 
 
 //----------------------------------------------------------

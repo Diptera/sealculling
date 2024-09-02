@@ -1,4 +1,5 @@
 Output dir: C:\docs\repos\sealculling\bin
+User Arguments: afo=true
 parsing
 flex pass 1
 flex pass 2
@@ -10,16 +11,16 @@ Memory Map
 Default-segment:
   *$0002-$0015 Unnamed
   $0801-$080d BASIC
-  $080e-$0b5e Assembly code
-  $0b5f-$176b Init
-  $176c-$18f1 IRQs
-  $18f2-$193c joystick.asm
-  $193d-$19d9 scrolls
-  $19da-$1bba scrollhill1charsleft
-  $1bbb-$1e8b scrollhill2colourleft
-  $1e8c-$2ac0 scrollleft
+  $080e-$0ba8 Assembly code
+  $0ba9-$17ed Init
+  $17ee-$196e IRQs
+  $196f-$19b9 joystick.asm
+  $19ba-$1a56 scrolls
+  $1a57-$1c37 scrollhill1charsleft
+  $1c38-$1f08 scrollhill2colourleft
+  $1f09-$2b3d scrollleft
   $4800-$4fff charset
-  $6000-$60bf Sprite data
+  $6000-$613f Sprite data
   $7000-$77ff Map ice
 
 Writing Vice symbol file: C:\docs\repos\sealculling\bin\main.vs

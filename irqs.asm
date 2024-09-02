@@ -63,8 +63,10 @@ vblank:
 sky:
 	storestate()
 
+	skycol:
 	lda #LIGHT_BLUE       
 	sta LABELS.border
+	sta LABELS.background
 
 	lda #<hilltop1    // Push next interrupt routine address for when we're done
 	sta LABELS.loirq
@@ -83,9 +85,10 @@ sky:
 hilltop1:
 	storestate()
 
-  	lda #DARK_GREY
-  	sta LABELS.border
-  	sta LABELS.background
+	// keep colours from first split
+  	//lda #DARK_GREY
+  	//sta LABELS.border
+  	//sta LABELS.background
 
 
 	// update screen hscroll

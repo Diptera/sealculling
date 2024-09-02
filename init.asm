@@ -137,7 +137,7 @@ ldx #$a0 // reverse space
 ///  \
 
 // set hilltop1 colours
-lda #LIGHT_GREY
+lda #DARK_GREY
 .for(var j=6; j<8; j++){
 	.for(var i=0; i<40; i++) {
 		sta LABELS.screencolourram + j*40 + i
@@ -192,7 +192,7 @@ ldx #$a0 // reverse space
 ///  \
 
 // set hilltop2 colours
-lda #DARK_GREY
+lda #GREY
 .for(var j=8; j<11; j++){
 	.for(var i=0; i<40; i++) {
 		sta LABELS.screencolourram + j*40 + i
@@ -256,6 +256,21 @@ lda #$81
 sta LABELS.sprPointerR + 1
 
 
+// cloud1
+lda LABELS.sprEnableR
+ora #%00000100
+sta LABELS.sprEnableR
+lda #$82
+sta LABELS.sprPointerR + 2
+
+// cloud2
+lda LABELS.sprEnableR
+ora #%00001000
+sta LABELS.sprEnableR
+lda #$82
+sta LABELS.sprPointerR + 3
+
+
 
 // initial position sprites
 //sun
@@ -274,21 +289,28 @@ sta ZP.playery
 lda #BLACK
 sta LABELS.sprcolour + 1
 //.break
+
+//cloud1
+lda #180
+sta LABELS.sprXLO + 4
+lda #60
+sta LABELS.sprY + 4
+lda #WHITE
+sta LABELS.sprcolour + 2
+
+//cloud2
+lda #83
+sta LABELS.sprXLO + 6
+lda #67
+sta LABELS.sprY + 6
+lda #WHITE
+sta LABELS.sprcolour + 3
+
+
+
+
+
 rts
-
-//sunsteps:
-//suny:
-//	.fill 256, -sin((i/256) * PI*2) * 41 + 91
-//sunx:
-//	.fill 256, -cos((i/256) * PI*2) * 140 + 140 + 31
-//sunmsb:
-//	.fill 91, 0
-//	.fill 75, 1
-//	.fill 90, 0
-
-
-
-
 
 }
 
