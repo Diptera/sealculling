@@ -34,6 +34,18 @@
 // init setup
 jsr INIT.init
 
+//.break
+
+
+// 9a to e7 is below the horizon, so move sprite offsreen
+lda #$ff
+ldx #$9a
+hidesun:
+sta suny,x
+inx
+cpx #$e7
+bne hidesun
+
 
 mainloop:
 	lda ZP.gameloop
@@ -79,6 +91,7 @@ mainloop:
 	lda suny, x
 	sta LABELS.sprY
 
+
 	nomovesun:
 
 
@@ -112,6 +125,8 @@ sunmsb:
 	.fill 91, 0
 	.fill 75, 1
 	.fill 90, 0
+
+// 9a to e7 is below the horizon, so move sprite offsreen
 
 
 

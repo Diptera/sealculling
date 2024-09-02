@@ -5,7 +5,7 @@ INIT: {
 init:
 
 
-	sei
+sei
 // copy rom charset  to 4800
 // make char rom visible
 lda $01
@@ -14,50 +14,7 @@ ora #%00000011
 sta $01
 
 
-// copy the chars
 
-jmp nocopychars
-
-ldx #$00
-ccinner:
-	lda $d000,x
-	sta $4800,x
-	lda $d100,x
-	sta $4900,x
-	lda $d200,x
-	sta $4a00,x
-	lda $d300,x
-	sta $4b00,x
-	lda $d400,x
-	sta $4c00,x
-	lda $d500,x
-	sta $4d00,x
-	lda $d600,x
-	sta $4e00,x
-	lda $d700,x
-	sta $4f00,x
-
-//	lda $d800,x
-//	sta $5000,x
-//	lda $d900,x
-//	sta $5100,x
-//	lda $da00,x
-//	sta $5200,x
-//	lda $db00,x
-//	sta $5300,x
-//	lda $dc00,x
-//	sta $5400,x
-//	lda $dd00,x
-//	sta $5500,x
-//	lda $de00,x
-//	sta $5600,x
-//	lda $df00,x
-//	sta $5700,x
-
-	dex
-	bne ccinner
-
-nocopychars:
 
 
 //.break
@@ -131,29 +88,29 @@ sta LABELS.viccontrol2
 //.break
 
 // fill screen with chars
-ldx #250
-lda #$66   // 66 7f
-!:
-	sta LABELS.screenram,x
-	sta [LABELS.screenram + 250], x
-	sta [LABELS.screenram + 500], x
-	sta [LABELS.screenram + 750], x
-	dex
-bne !-
+//ldx #250
+//lda #$66   // 66 7f
+//!:
+//	sta LABELS.screenram,x
+//	sta [LABELS.screenram + 250], x
+//	sta [LABELS.screenram + 500], x
+//	sta [LABELS.screenram + 750], x
+//	dex
+//bne !-
 
 //.break
 
 // fill colour ram
-ldx #250
-lda #$00
-!:
-	sta LABELS.screencolourram,x
-	sta [LABELS.screencolourram + 250], x
-	sta [LABELS.screencolourram + 500], x
-	sta [LABELS.screencolourram + 750], x
-	adc #$01
-	dex
-bne !-
+//ldx #250
+//lda #$00
+//!:
+//	sta LABELS.screencolourram,x
+//	sta [LABELS.screencolourram + 250], x
+//	sta [LABELS.screencolourram + 500], x
+//	sta [LABELS.screencolourram + 750], x
+//	adc #$01
+//	dex
+//bne !-
 
 // set hilltop1 (row 6-7) chars 
 lda #$e9 //'/'
@@ -189,6 +146,65 @@ lda #LIGHT_GREY
 
 
 
+//  /\
+// /  \
+///    \
+
+
+// set hilltop2 (row 8-10) chars 
+lda #$e9 //'/'
+ldx #$20 //' '
+ldy #$df //'\'
+
+.for(var i=0; i<37; i+=6) {
+	stx LABELS.screenram + 8*40 + i
+	stx LABELS.screenram + 8*40 + i + 1
+	sta LABELS.screenram + 8*40 + i + 2
+	sty LABELS.screenram + 8*40 + i + 3
+	stx LABELS.screenram + 8*40 + i + 4
+	stx LABELS.screenram + 8*40 + i + 5
+	}
+
+ldx #$a0 // reverse space
+
+.for(var i=0; i<37; i+=6) {
+	stx LABELS.screenram + 9*40 + i
+	sta LABELS.screenram + 9*40 + i + 1
+	stx LABELS.screenram + 9*40 + i + 2
+	stx LABELS.screenram + 9*40 + i + 3
+	sty LABELS.screenram + 9*40 + i + 4
+	stx LABELS.screenram + 9*40 + i + 5
+
+	}
+
+.for(var i=0; i<40; i+=6) {
+	sta LABELS.screenram + 10*40 + i
+	stx LABELS.screenram + 10*40 + i + 1
+	stx LABELS.screenram + 10*40 + i + 2
+	stx LABELS.screenram + 10*40 + i + 3
+	stx LABELS.screenram + 10*40 + i + 4
+	sty LABELS.screenram + 10*40 + i + 5
+	}
+
+
+
+// /\
+///  \
+
+// set hilltop2 colours
+lda #DARK_GREY
+.for(var j=8; j<11; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screencolourram + j*40 + i
+	}
+}
+
+
+
+
+
+
+
 jsr SCROLL.scrollicecharsleft
 
 // set ice colours
@@ -209,12 +225,16 @@ lda #$20 // space
 }
 
 
-
+//.break
 
 
 
 lda #00
 sta ZP.suncycle
+
+
+
+
 
 // Enable sprite and set pointer
 // sun
@@ -253,6 +273,18 @@ lda #150
 sta ZP.playery
 lda #BLACK
 sta LABELS.sprcolour + 1
+//.break
+rts
+
+//sunsteps:
+//suny:
+//	.fill 256, -sin((i/256) * PI*2) * 41 + 91
+//sunx:
+//	.fill 256, -cos((i/256) * PI*2) * 140 + 140 + 31
+//sunmsb:
+//	.fill 91, 0
+//	.fill 75, 1
+//	.fill 90, 0
 
 
 

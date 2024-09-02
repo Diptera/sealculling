@@ -46,7 +46,7 @@ SCROLL: {
 	sta ZP.scrollpos_hilltop2
 
 	// scroll the colour data
-	jsr scrollhill2colourleft
+	jsr scrollhill2charsleft
 
 	noscrollhill2left:
 
@@ -127,7 +127,7 @@ SCROLL: {
 	sta ZP.scrollpos_hilltop2
 
 	// scroll the colour data
-	jsr scrollhill2colourright
+	jsr scrollhill2charsright
 
 	noscrollhill2right:
 
@@ -186,15 +186,15 @@ SCROLL: {
 	rts
 
 
-	scrollhill2colourleft:
+	scrollhill2charsleft:
 *=* "scrollhill2colourleft"
 	.for(var j=8; j<11; j++) {
-		ldy LABELS.screencolourram + j*40
+		ldy LABELS.screenram + j*40
 		.for(var i=1; i<40; i++) {
-			lda LABELS.screencolourram + j*40 + i
-			sta LABELS.screencolourram + j*40 + i - 1
+			lda LABELS.screenram + j*40 + i
+			sta LABELS.screenram + j*40 + i - 1
 		}
-		sty LABELS.screencolourram + j * 40 + 39
+		sty LABELS.screenram + j * 40 + 39
 	}
 
 	rts
@@ -235,15 +235,15 @@ SCROLL: {
 	rts
 
 
-	scrollhill2colourright:
+	scrollhill2charsright:
 
 	.for(var j=8; j<11; j++) {
-		ldy LABELS.screencolourram + j*40 + 39
+		ldy LABELS.screenram + j*40 + 39
 		.for(var i=38; i>-1; i--) {
-			lda LABELS.screencolourram + j*40 + i
-			sta LABELS.screencolourram + j*40 + i + 1
+			lda LABELS.screenram + j*40 + i
+			sta LABELS.screenram + j*40 + i + 1
 		}
-		sty LABELS.screencolourram + j * 40 + 0
+		sty LABELS.screenram + j * 40 + 0
 	}
 
 
