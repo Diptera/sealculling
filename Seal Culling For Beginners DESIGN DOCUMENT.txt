@@ -121,3 +121,15 @@ HUD		/
 HUD		|	CASH $12345			TEMP (health)
 HUD		\
 
+
+
+Sun movement
+x=$1f to $37 (msb1)  (dec 31 to dec 311 = 280 width, 140 center)
+y=58 (central pos) 32 (top pos)  (84 night pos)  (dec 50 to 132, 82w, 91c)
+
+
+x =-SIN((A2/280) * PI() *2) * 41 + 91
+y =-COS((A2/280) * PI() *2) * 140 + 140 + 31
+
+over 280 steps 
+

@@ -51,7 +51,10 @@ playery:
 mapicepos:
 	.byte 0
 
-	
+suncycle: // counter for how many frames between each sun pos
+	.byte 0	
+sunpos:		// current position of the sun 0 - 279
+	.byte 0, 0
 
 }
 

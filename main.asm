@@ -44,6 +44,44 @@ mainloop:
 	// increase gen counter tick once per frame
 	inc ZP.general_counter
 
+//	lda ZP.suncycle
+//	clc
+//	adc #$01
+//	cmp #$32
+//	bne nosunupdate  // only going to update every x cycles
+//	// got here, so need to update the sun
+//	clc
+//	lda ZP.sunpos + 0
+//	clc
+//	adc #$01
+//	bne
+//	// set msb
+//	lda #$01
+
+
+	// check if time to move the sun
+	lda ZP.general_counter
+	and #%00000111
+	bne nomovesun
+
+	// move the sun
+	inc ZP.sunpos
+	ldx ZP.sunpos
+	lda sunx, x
+	sta LABELS.sprXLO
+
+	// set msb	
+	lda LABELS.sprXHIbitsR
+	and #%11111110
+	ora sunmsb,x
+	sta LABELS.sprXHIbitsR
+
+	lda suny, x
+	sta LABELS.sprY
+
+	nomovesun:
+
+
 	// draw player
 	lda ZP.playerx
 	sta [LABELS.sprXLO + 2]
@@ -63,6 +101,19 @@ mainloop:
 	jmp mainloop
 
 rts
+
+
+sunsteps:
+suny:
+	.fill 256, -sin((i/256) * PI*2) * 41 + 91
+sunx:
+	.fill 256, -cos((i/256) * PI*2) * 140 + 140 + 31
+sunmsb:
+	.fill 91, 0
+	.fill 75, 1
+	.fill 90, 0
+
+
 
 
 *=* "Init"

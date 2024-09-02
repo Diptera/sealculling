@@ -200,10 +200,21 @@ lda #BLACK
 }
 
 
+// clear the sky
+lda #$20 // space
+.for(var j=0; j<6; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screenram + j*40 + i
+	}
+}
 
 
 
 
+
+
+lda #00
+sta ZP.suncycle
 
 // Enable sprite and set pointer
 // sun
@@ -212,6 +223,10 @@ ora #%00000001
 sta LABELS.sprEnableR
 lda #$80
 sta LABELS.sprPointerR
+
+lda LABELS.sprPriorityR
+ora #%00000001
+sta LABELS.sprPriorityR
 
 // player
 lda LABELS.sprEnableR

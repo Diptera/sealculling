@@ -1,35 +1,41 @@
 .namespace sealcullingforbeginners {
+  .label sunmsb=$a53
+  .label nomovesun=$83a
   .label mainloop=$811
+  .label sunx=$953
+  .label sunsteps=$853
+  .label suny=$853
 }
-.label INIT=$832 {
-  .label init=$832
-  .label ccinner=$840
-  .label nocopychars=$873
+.label INIT=$b53 {
+  .label init=$b53
+  .label ccinner=$b61
+  .label nocopychars=$b94
 }
 .label mapice=$7000
-.label SCROLL=$10a5 {
-  .label scrollhill1charsleft=$1142
-  .label scrollhill2colourright=$1f58
-  .label doscrolliceleft=$10d7
-  .label mainscroll=$10a5
-  .label scrollleft=$10ad
-  .label noscrollhill1left=$10c0
-  .label noscrolliceleft=$10e8
-  .label scrollicecharsleft=$15f4
-  .label scrollright=$10ed
-  .label noscrolliceright=$113d
-  .label noscrollhill1right=$1107
-  .label noscrollhill2right=$1121
-  .label scrollhill2colourleft=$1323
-  .label scrollhill1charsright=$1d77
-  .label noscrollhill2left=$10d3
-  .label doscrollice2left=$10df
-  .label redrawicechars=$15f4
+.label SCROLL=$16a4 {
+  .label scrollhill1charsleft=$1741
+  .label scrollhill2colourright=$2557
+  .label doscrolliceleft=$16d6
+  .label mainscroll=$16a4
+  .label scrollleft=$16ac
+  .label noscrollhill1left=$16bf
+  .label noscrolliceleft=$16e7
+  .label scrollicecharsleft=$1bf3
+  .label scrollright=$16ec
+  .label noscrolliceright=$173c
+  .label noscrollhill1right=$1706
+  .label noscrollhill2right=$1720
+  .label scrollhill2colourleft=$1922
+  .label scrollhill1charsright=$2376
+  .label noscrollhill2left=$16d2
+  .label doscrollice2left=$16de
+  .label redrawicechars=$1bf3
 }
 .label ZP=$2 {
   .label gameloop=$2
   .label playerx=$10
   .label scrollercounteroriginal_hilltop2=$9
+  .label sunpos=$14
   .label scrollercounteroriginal_hilltop1=$6
   .label scrollercounteroriginal_ice=$c
   .label playery=$11
@@ -39,38 +45,39 @@
   .label scrollercounter_ice=$b
   .label general_counter=$3
   .label scrollercounter_hilltop1=$5
+  .label suncycle=$13
   .label scrollercounter_hilltop2=$8
   .label mapicepos=$12
   .label scrollpos_hilltop2=$7
   .label scrolldirection=$d
   .label scrollpos_hilltop1=$4
 }
-.label JOYSTICK=$105a {
-  .label actionleft=$1074
-  .label checkleft=$105f
-  .label noaction=$1071
-  .label checkright=$1068
-  .label moveplayerright=$109d
-  .label actionright=$108a
-  .label processjoystick=$105a
-  .label moveplayerleft=$1087
-  .label endjoystick=$10a0
+.label JOYSTICK=$1659 {
+  .label actionleft=$1673
+  .label checkleft=$165e
+  .label noaction=$1670
+  .label checkright=$1667
+  .label moveplayerright=$169c
+  .label actionright=$1689
+  .label processjoystick=$1659
+  .label moveplayerleft=$1686
+  .label endjoystick=$169f
 }
-.label IRQ=$ed4 {
-  .label sky=$f2c {
+.label IRQ=$14d3 {
+  .label sky=$152b {
   }
-  .label hilltop1=$f50 {
+  .label hilltop1=$154f {
   }
-  .label hilltop2=$f8b {
+  .label hilltop2=$158a {
   }
-  .label ocean=$ffb {
+  .label ocean=$15fa {
   }
-  .label hud=$1033 {
+  .label hud=$1632 {
   }
-  .label irqinit=$ed4
-  .label ice=$fc3 {
+  .label irqinit=$14d3
+  .label ice=$15c2 {
   }
-  .label vblank=$f01 {
+  .label vblank=$1500 {
   }
 }
 .label LABELS=$2000 {
