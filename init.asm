@@ -230,6 +230,23 @@ sta ZP.suncycle
 
 
 // Enable sprite and set pointer
+
+// left border fade
+lda LABELS.sprEnableR
+ora #%00000001
+sta LABELS.sprEnableR
+lda #$83
+sta LABELS.sprPointerR 
+
+// right border fade
+lda LABELS.sprEnableR
+ora #%00010000
+sta LABELS.sprEnableR
+lda #$84
+sta LABELS.sprPointerR + 4
+
+
+
 // sun
 lda LABELS.sprEnableR
 ora #%10000000
@@ -266,6 +283,28 @@ sta LABELS.sprPointerR + 3
 
 
 // initial position sprites
+
+// left border fade
+lda #31
+sta LABELS.sprXLO + 0
+lda #93
+sta LABELS.sprY + 0
+lda #WHITE
+sta LABELS.sprcolour + 0
+
+
+// right border fade
+lda #55
+sta LABELS.sprXLO + 8
+lda LABELS.sprXHIbitsR
+ora #%00010000
+sta LABELS.sprXHIbitsR
+lda #93
+sta LABELS.sprY + 8
+lda #WHITE
+sta LABELS.sprcolour + 4
+
+
 //sun
 lda #70
 sta LABELS.sprXLO + 14
@@ -298,6 +337,10 @@ lda #67
 sta LABELS.sprY + 6
 lda #WHITE
 sta LABELS.sprcolour + 3
+
+
+
+
 
 
 rts

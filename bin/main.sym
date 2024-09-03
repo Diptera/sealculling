@@ -3,27 +3,27 @@
 }
 .label INIT=$835 {
   .label init=$835
-  .label hudtext=$1785
+  .label hudtext=$17c5
   .label huddraw=$1701
 }
 .label mapice=$7000
-.label SCROLL=$199e {
-  .label scrollhill1charsleft=$1a3b
-  .label doscrolliceleft=$19d0
-  .label mainscroll=$199e
-  .label scrollhill2charsleft=$1c1c
-  .label scrollleft=$19a6
-  .label noscrollhill1left=$19b9
-  .label noscrolliceleft=$19e1
-  .label scrollright=$19e6
-  .label noscrolliceright=$1a36
-  .label noscrollhill1right=$1a00
-  .label noscrollhill2right=$1a1a
-  .label scrollhill1charsright=$2670
-  .label noscrollhill2left=$19cc
-  .label scrollhill2charsright=$2851
-  .label doscrollice2left=$19d8
-  .label redrawicechars=$1eed
+.label SCROLL=$19f2 {
+  .label scrollhill1charsleft=$1a8f
+  .label doscrolliceleft=$1a24
+  .label mainscroll=$19f2
+  .label scrollhill2charsleft=$1c70
+  .label scrollleft=$19fa
+  .label noscrollhill1left=$1a0d
+  .label noscrolliceleft=$1a35
+  .label scrollright=$1a3a
+  .label noscrolliceright=$1a8a
+  .label noscrollhill1right=$1a54
+  .label noscrollhill2right=$1a6e
+  .label scrollhill1charsright=$26c4
+  .label noscrollhill2left=$1a20
+  .label scrollhill2charsright=$28a5
+  .label doscrollice2left=$1a2c
+  .label redrawicechars=$1f41
 }
 .label ZP=$2 {
   .label gameloop=$2
@@ -47,53 +47,53 @@
   .label scrolldirection=$d
   .label scrollpos_hilltop1=$4
 }
-.label JOYSTICK=$1953 {
-  .label actionleft=$196d
-  .label checkleft=$1958
-  .label noaction=$196a
-  .label checkright=$1961
-  .label moveplayerright=$1996
-  .label actionright=$1983
-  .label processjoystick=$1953
-  .label moveplayerleft=$1980
-  .label endjoystick=$1999
+.label JOYSTICK=$19a7 {
+  .label actionleft=$19c1
+  .label checkleft=$19ac
+  .label noaction=$19be
+  .label checkright=$19b5
+  .label moveplayerright=$19ea
+  .label actionright=$19d7
+  .label processjoystick=$19a7
+  .label moveplayerleft=$19d4
+  .label endjoystick=$19ed
 }
-.label TOD=$2b22 {
-  .label skycolcheck6=$2b96
-  .label setskycol=$2bb8
-  .label sunendmsb2=$2b57
-  .label skycolcheck5=$2b8b
-  .label skycolcheck8=$2bb0
-  .label skycolcheck7=$2ba3
-  .label skycolcheck2=$2b6a
-  .label sunendmsb=$2b54
-  .label skycolcheck4=$2b82
-  .label skycolcheck3=$2b77
-  .label tod=$2b22
-  .label sunmsboff=$2b49
-  .label domovesun=$2b2b
-  .label nomovesun=$2bc1
-  .label sunx=$2cc2
-  .label sunsteps=$2bc2
-  .label suny=$2bc2
+.label TOD=$2b76 {
+  .label skycolcheck6=$2bea
+  .label setskycol=$2c0c
+  .label sunendmsb2=$2bab
+  .label skycolcheck5=$2bdf
+  .label skycolcheck8=$2c04
+  .label skycolcheck7=$2bf7
+  .label skycolcheck2=$2bbe
+  .label sunendmsb=$2ba8
+  .label skycolcheck4=$2bd6
+  .label skycolcheck3=$2bcb
+  .label tod=$2b76
+  .label sunmsboff=$2b9d
+  .label domovesun=$2b7f
+  .label nomovesun=$2c15
+  .label sunx=$2d16
+  .label sunsteps=$2c16
+  .label suny=$2c16
 }
-.label IRQ=$17ac {
-  .label sky=$1804 {
+.label IRQ=$17ec {
+  .label sky=$1844 {
   }
-  .label hilltop1=$182b {
+  .label hilltop1=$1879 {
   }
-  .label hilltop2=$185e {
+  .label hilltop2=$18a8 {
   }
-  .label ocean=$18e7 {
+  .label ocean=$193b {
   }
-  .label skycol=$1809
-  .label hud=$192c {
+  .label skycol=$1849
+  .label hud=$1980 {
   }
-  .label irqinit=$17ac
-  .label ice=$18af {
+  .label irqinit=$17ec
+  .label ice=$1903 {
   }
-  .label icecol=$18b4
-  .label vblank=$17d9 {
+  .label icecol=$1908
+  .label vblank=$1819 {
   }
 }
 .label LABELS=$2000 {

@@ -11,17 +11,17 @@ Default-segment:
   *$0002-$0017 Unnamed
   $0801-$080d BASIC
   $080e-$0834 Assembly code
-  $0835-$17ab Init
-  $17ac-$1952 IRQs
-  $1953-$199d joystick.asm
-  $199e-$1a3a scrolls
-  $1a3b-$1c1b scrollhill1charsleft
-  $1c1c-$1eec scrollhill2colourleft
-  $1eed-$2b21 scrollleft
-  $2b22-$2cc1 tod
-  $2cc2-$2dc1 sunx
+  $0835-$17eb Init
+  $17ec-$19a6 IRQs
+  $19a7-$19f1 joystick.asm
+  $19f2-$1a8e scrolls
+  $1a8f-$1c6f scrollhill1charsleft
+  $1c70-$1f40 scrollhill2colourleft
+  $1f41-$2b75 scrollleft
+  $2b76-$2d15 tod
+  $2d16-$2e15 sunx
   $4800-$4fff charset
-  $6000-$613f Sprite data
+  $6000-$61bf Sprite data
   $7000-$77ff Map ice
 
 Writing Vice symbol file: C:\docs\repos\sealculling\bin\main.vs

@@ -97,6 +97,7 @@ TOD: {
 	ldy #DARK_GREY
 	setskycol:
 	sta IRQ.skycol + 1
+	//sta LABELS.sprcolour + 0  // edge fade sprite
 	stx LABELS.sprcolour + 7
 	sty IRQ.icecol + 1
  //black  dg  db purp      lb    purp  db   dg  purple    black

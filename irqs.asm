@@ -67,6 +67,15 @@ sky:
 	lda #LIGHT_BLUE       
 	sta LABELS.border
 	sta LABELS.background
+	sta LABELS.sprcolour + 0  // left edge fade sprite
+	sta LABELS.sprcolour + 4 // right edge fade
+
+  	// relocate edge fade sprite
+  	lda #93
+  	sta LABELS.sprY	+ 0
+  	sta LABELS.sprY + 8
+
+
 
 	lda #<hilltop1    // Push next interrupt routine address for when we're done
 	sta LABELS.loirq
@@ -101,10 +110,6 @@ hilltop1:
 	nop
 	nop
 	nop
-	nop
-	nop
-	nop
-	nop
 	sta LABELS.viccontrol2
 
 	lda #$ff        // Acknowlege IRQ 
@@ -127,6 +132,10 @@ hilltop2:
   	lda #LIGHT_GREY
   	sta LABELS.border
   	sta LABELS.background
+  	sta LABELS.sprcolour + 0  // left edge fade sprite
+  	sta LABELS.sprcolour + 4  // right edge fade
+
+
 
   	// hide the sun as below the horizon
   	// save current settings to restore at ocean split
@@ -142,7 +151,6 @@ hilltop2:
   	and #%01111111
   	sta LABELS.sprXHIbitsR 
 
-
 	// update screen hscroll
 	lda LABELS.viccontrol2
 	and #%11111000
@@ -150,11 +158,13 @@ hilltop2:
 	nop	// allow raster to get to end of line before setting hscroll
 	nop 
 	nop 
-	nop 
-	nop 
-	nop 
-	nop 
 	sta LABELS.viccontrol2
+
+  	// relocate edge fade sprite
+  	lda #93 + 21 + 2
+  	sta LABELS.sprY	+ 0
+  	sta LABELS.sprY + 8
+
 
 	lda #<ice   // Push next interrupt routine address for when we're done
 	sta LABELS.loirq
