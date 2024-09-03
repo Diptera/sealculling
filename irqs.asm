@@ -107,9 +107,6 @@ hilltop1:
 	nop // allow raster to get to end of line before setting hscroll
 	nop
 	nop
-	nop
-	nop
-	nop
 	sta LABELS.viccontrol2
 
 	lda #$ff        // Acknowlege IRQ 
@@ -135,9 +132,16 @@ hilltop2:
   	sta LABELS.sprcolour + 0  // left edge fade sprite
   	sta LABELS.sprcolour + 4  // right edge fade
 
+	// update screen hscroll
+	lda LABELS.viccontrol2
+	and #%11111000
+	ora ZP.scrollpos_hilltop2
+	nop	// allow raster to get to end of line before setting hscroll
+	nop 
+	nop 
+	sta LABELS.viccontrol2
 
-
-  	// hide the sun as below the horizon
+	// hide the sun as below the horizon
   	// save current settings to restore at ocean split
   	lda LABELS.sprXLO + 14
   	sta ZP.sunx
@@ -150,15 +154,6 @@ hilltop2:
   	lda LABELS.sprXHIbitsR
   	and #%01111111
   	sta LABELS.sprXHIbitsR 
-
-	// update screen hscroll
-	lda LABELS.viccontrol2
-	and #%11111000
-	ora ZP.scrollpos_hilltop2
-	nop	// allow raster to get to end of line before setting hscroll
-	nop 
-	nop 
-	sta LABELS.viccontrol2
 
   	// relocate edge fade sprite
   	lda #93 + 21 + 2
@@ -197,9 +192,6 @@ ice:
 	nop 
 	nop 
 	nop 
-	nop 
-	nop 
-	nop 
 	sta LABELS.viccontrol2
 
 
@@ -224,13 +216,6 @@ ocean:
 	sta LABELS.border
   	sta LABELS.background
 
-  	// put the sun back where it belongs
-  	lda ZP.sunx
-  	sta LABELS.sprXLO + 14
-  	lda LABELS.sprXHIbitsR
-  	ora ZP.sunx+1
-  	sta LABELS.sprXHIbitsR
-
 
 	// temp reset hscroll until this one gets its own
 	lda LABELS.viccontrol2
@@ -239,13 +224,18 @@ ocean:
 	nop // allow raster to get to end of line before setting hscroll
 	nop
 	nop 
-	nop
-	nop
-	nop 
-	nop 
 	nop 
 	nop 
 	sta LABELS.viccontrol2
+
+
+  	// put the sun back where it belongs
+  	lda ZP.sunx
+  	sta LABELS.sprXLO + 14
+  	lda LABELS.sprXHIbitsR
+  	ora ZP.sunx+1
+  	sta LABELS.sprXHIbitsR
+
 
 
 	lda #<hud   // Push next interrupt routine address for when we're done

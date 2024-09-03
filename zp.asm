@@ -58,6 +58,10 @@ sunpos:		// current position of the sun 0 - 279
 sunx:	// temp copy of x pos to restore after raster split hides it
 	.byte 0, 0
 
+playertemperature:  // health of player
+	.byte 0
+playertemperaturetick:  // ticks until health drops 1
+	.byte 0, 0
 
 }
 

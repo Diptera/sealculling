@@ -210,10 +210,27 @@ lda #$20 // space
 ldx #$27
 huddraw:
 lda hudtext,x
-sta LABELS.screenram + 22 * 40, x
+sta LABELS.screenram + 23 * 40, x
 dex
 bne huddraw
 
+// colour the temperature gauge
+// RRRYYYYGGGGG
+lda #RED
+sta LABELS.screencolourram + [23 * 40] + 8
+sta LABELS.screencolourram + [23 * 40] + 9
+sta LABELS.screencolourram + [23 * 40] + 10
+lda #YELLOW
+sta LABELS.screencolourram + [23 * 40] + 11
+sta LABELS.screencolourram + [23 * 40] + 12
+sta LABELS.screencolourram + [23 * 40] + 13
+sta LABELS.screencolourram + [23 * 40] + 14
+lda #GREEN
+sta LABELS.screencolourram + [23 * 40] + 15
+sta LABELS.screencolourram + [23 * 40] + 16
+sta LABELS.screencolourram + [23 * 40] + 17
+sta LABELS.screencolourram + [23 * 40] + 18
+sta LABELS.screencolourram + [23 * 40] + 19
 
 
 //.break
@@ -225,7 +242,10 @@ bne huddraw
 lda #00
 sta ZP.suncycle
 
-
+lda #$74
+sta ZP.playertemperature
+lda #50
+sta ZP.playertemperaturetick
 
 
 
@@ -347,7 +367,14 @@ rts
 
 
 hudtext:
-	 .text "  temp:             cash               "
+	 .text "  temp:               cash:             "
+
+// hud temp chars - blank to full
+// 32, 101, 116, 117, 97, 246, 231, 234, 160
+// 13 char spaces * 8 pixels = $74
+
+// RRRYYYYGGGGG
+
 
 }
 
