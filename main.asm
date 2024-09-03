@@ -82,12 +82,31 @@ mainloop:
 	lda sunx, x
 	sta LABELS.sprXLO
 
+
+
+
 	// set msb	
+
+	//  msb needed sunpos 5b to a6
+	lda ZP.sunpos
+	cmp #$5b
+	bne sunmsboff
+	// set msb
+	lda LABELS.sprXHIbitsR
+	ora #%00000001
+	jmp sunendmsb
+	// clear msb
+	sunmsboff:
+	lda ZP.sunpos
+	cmp #$a6
+	bne sunendmsb2
 	lda LABELS.sprXHIbitsR
 	and #%11111110
-	ora sunmsb,x
+	sunendmsb:
 	sta LABELS.sprXHIbitsR
+	sunendmsb2:
 
+	// set y pos
 	lda suny, x
 	sta LABELS.sprY
 
@@ -133,9 +152,7 @@ mainloop:
 	lda #BLACK
 	setskycol:
 	sta IRQ.skycol + 1
-
  //black  dg  db purp      lb    purp  db   dg  purple    black
-
 	nomovesun:
 
 
@@ -147,9 +164,7 @@ mainloop:
 
 	jsr JOYSTICK.processjoystick
 
-
 	jsr SCROLL.mainscroll
-
 
 
 	lda #GREEN
@@ -163,16 +178,9 @@ rts
 sunsteps:
 suny:
 	.fill 256, -sin((i/256) * PI*2) * 41 + 91
+*=* "sunx"	
 sunx:
 	.fill 256, -cos((i/256) * PI*2) * 140 + 140 + 31
-sunmsb:
-	.fill 91, 0
-	.fill 75, 1
-	.fill 90, 0
-
-// 9a to e7 is below the horizon, so move sprite offsreen
-
-
 
 
 *=* "Init"

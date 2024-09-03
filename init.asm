@@ -13,12 +13,7 @@ and #%11111000
 ora #%00000011
 sta $01
 
-
-
-
-
 //.break
-
 
 // bank out BASIC and kernel
 //.break
@@ -46,12 +41,7 @@ ora #%00000010	// char ram in first bank  $4800-$4fff
 sta LABELS.vicmemory
 
 
-
-
-//.break
-
-
-// default values
+// default scroll values
 lda #07
 sta ZP.scrollpos_hilltop1
 lda #08
@@ -85,34 +75,10 @@ lda LABELS.viccontrol2
 and #%11110111
 sta LABELS.viccontrol2
 
-//.break
-
-// fill screen with chars
-//ldx #250
-//lda #$66   // 66 7f
-//!:
-//	sta LABELS.screenram,x
-//	sta [LABELS.screenram + 250], x
-//	sta [LABELS.screenram + 500], x
-//	sta [LABELS.screenram + 750], x
-//	dex
-//bne !-
-
-//.break
-
-// fill colour ram
-//ldx #250
-//lda #$00
-//!:
-//	sta LABELS.screencolourram,x
-//	sta [LABELS.screencolourram + 250], x
-//	sta [LABELS.screencolourram + 500], x
-//	sta [LABELS.screencolourram + 750], x
-//	adc #$01
-//	dex
-//bne !-
 
 // set hilltop1 (row 6-7) chars 
+// /\
+///  \
 lda #$e9 //'/'
 ldx #$20 //' '
 ldy #$df //'\'
@@ -133,8 +99,6 @@ ldx #$a0 // reverse space
 	sty LABELS.screenram + 7*40 + i + 3
 	}
 
-// /\
-///  \
 
 // set hilltop1 colours
 lda #DARK_GREY
@@ -146,12 +110,12 @@ lda #DARK_GREY
 
 
 
-//  /\
-// /  \
-///    \
 
 
 // set hilltop2 (row 8-10) chars 
+//  /\
+// /  \
+///    \
 lda #$e9 //'/'
 ldx #$20 //' '
 ldy #$df //'\'
@@ -186,11 +150,6 @@ ldx #$a0 // reverse space
 	sty LABELS.screenram + 10*40 + i + 5
 	}
 
-
-
-// /\
-///  \
-
 // set hilltop2 colours
 lda #GREY
 .for(var j=8; j<11; j++){
@@ -204,8 +163,7 @@ lda #GREY
 
 
 
-
-jsr SCROLL.scrollicecharsleft
+jsr SCROLL.redrawicechars
 
 // set ice colours
 lda #BLACK
@@ -225,7 +183,28 @@ lda #$20 // space
 }
 
 
+// clear the ocean
+lda #$20 // space
+.for(var j=19; j<22; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screenram + j*40 + i
+	}
+}
+
+
+
+// clear the hud
+lda #$20 // space
+.for(var j=22; j<25; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screenram + j*40 + i
+	}
+}
+
+
 //.break
+
+
 
 
 

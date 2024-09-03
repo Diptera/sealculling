@@ -202,7 +202,7 @@ SCROLL: {
 
 
 	redrawicechars:
-	scrollicecharsleft:
+//	scrollicecharsleft:
 *=* "scrollleft"
 	ldx ZP.mapicepos
 	.for(var j=11; j<19; j++) {
