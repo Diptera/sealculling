@@ -1,4 +1,5 @@
 Output dir: C:\docs\repos\sealculling\bin
+User Arguments: afo=true
 parsing
 flex pass 1
 flex pass 2
@@ -11,15 +12,15 @@ Default-segment:
   *$0002-$001a Unnamed
   $0801-$080d BASIC
   $080e-$0867 Assembly code
-  $0868-$1851 Init
-  $1852-$1a02 IRQs
-  $1a03-$1a4d joystick.asm
-  $1a4e-$1aea scrolls
-  $1aeb-$1ccb scrollhill1charsleft
-  $1ccc-$1f9c scrollhill2colourleft
-  $1f9d-$2bd1 scrollleft
-  $2bd2-$2d71 tod
-  $2d72-$2e71 sunx
+  $0868-$1860 Init
+  $1861-$1a2d IRQs
+  $1a2e-$1a78 joystick.asm
+  $1a79-$1b15 scrolls
+  $1b16-$1cf6 scrollhill1charsleft
+  $1cf7-$1fc7 scrollhill2colourleft
+  $1fc8-$2bfc scrollleft
+  $2bfd-$2d9c tod
+  $2d9d-$2e9c sunx
   $4800-$4fff charset
   $6000-$61bf Sprite data
   $7000-$77ff Map ice

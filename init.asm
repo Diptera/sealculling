@@ -236,6 +236,16 @@ sta LABELS.screencolourram + [23 * 40] + 19
 //.break
 
 
+// overwrite the calculated sunsteps to set X=0 and Y=50
+// will allow us to reuse the sprite further down the screen
+ldx #$85
+lda #0
+setnightsunpos:
+sta TOD.sunx, x
+sta TOD.suny, x
+inx
+cpx #$fb
+bne setnightsunpos
 
 
 
@@ -336,7 +346,7 @@ sta LABELS.sprcolour + 7
 //player
 lda #100
 sta ZP.playerx
-lda #150
+lda #158
 sta ZP.playery
 lda #BLACK
 sta LABELS.sprcolour + 1

@@ -182,7 +182,8 @@ ice:
  	lda #WHITE
  	sta LABELS.border	
   	sta LABELS.background
-
+  	sta LABELS.sprcolour + 0  // left edge fade sprite
+  	sta LABELS.sprcolour + 4  // right edge fade
 
 	// update hscroll pos
 	lda LABELS.viccontrol2
@@ -193,6 +194,12 @@ ice:
 	nop 
 	nop 
 	sta LABELS.viccontrol2
+
+
+  	// relocate edge fade sprite
+  	lda #93 + 21 + 66
+  	sta LABELS.sprY	+ 0
+  	sta LABELS.sprY + 8
 
 
 	lda #<ocean   // Push next interrupt routine address for when we're done
@@ -215,7 +222,8 @@ ocean:
 	lda #BLUE   
 	sta LABELS.border
   	sta LABELS.background
-
+  	sta LABELS.sprcolour + 0  // left edge fade sprite
+  	sta LABELS.sprcolour + 4  // right edge fade
 
 	// temp reset hscroll until this one gets its own
 	lda LABELS.viccontrol2
@@ -228,6 +236,11 @@ ocean:
 	nop 
 	sta LABELS.viccontrol2
 
+
+  	// relocate edge fade sprite
+  	lda #93 + 21 + 87
+  	sta LABELS.sprY	+ 0
+  	sta LABELS.sprY + 8
 
   	// put the sun back where it belongs
   	lda ZP.sunx
