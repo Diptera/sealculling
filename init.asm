@@ -201,6 +201,15 @@ lda #$20 // space
 	}
 }
 
+// set hud text
+ldx #$27
+huddraw:
+lda hudtext,x
+sta LABELS.screenram + 22 * 40, x
+dex
+bne huddraw
+
+
 
 //.break
 
@@ -290,6 +299,12 @@ sta LABELS.sprcolour + 3
 
 
 rts
+
+
+
+
+hudtext:
+	 .text "  temperature        cash               "
 
 }
 

@@ -202,19 +202,15 @@ SCROLL: {
 
 
 	redrawicechars:
-//	scrollicecharsleft:
 *=* "scrollleft"
 	ldx ZP.mapicepos
 	.for(var j=11; j<19; j++) {
-		//ldy LABELS.screenram + j*40
 		.for(var i=00; i<40; i++) {
 			//ldx #ZP.mapicepos
 			lda [mapice + [[j-11]*256] + i], x  //TODO - indexed x
 			sta LABELS.screenram + j*40 + i
 		}
-		//sty LABELS.screenram + j * 40 + 39
 	}
-
 	rts
 
 

@@ -12,13 +12,13 @@ Default-segment:
   $0801-$080d BASIC
   $080e-$09b9 Assembly code
   $09ba-$0ab9 sunx
-  $0aba-$19d2 Init
-  $19d3-$1b53 IRQs
-  $1b54-$1b9e joystick.asm
-  $1b9f-$1c3b scrolls
-  $1c3c-$1e1c scrollhill1charsleft
-  $1e1d-$20ed scrollhill2colourleft
-  $20ee-$2d22 scrollleft
+  $0aba-$1a05 Init
+  $1a06-$1b86 IRQs
+  $1b87-$1bd1 joystick.asm
+  $1bd2-$1c6e scrolls
+  $1c6f-$1e4f scrollhill1charsleft
+  $1e50-$2120 scrollhill2colourleft
+  $2121-$2d55 scrollleft
   $4800-$4fff charset
   $6000-$613f Sprite data
   $7000-$77ff Map ice
