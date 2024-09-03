@@ -37,16 +37,6 @@ jsr INIT.init
 //.break
 
 
-// 9a to e7 is below the horizon, so move sprite offsreen
-lda #$ff
-ldx #$9a
-hidesun:
-sta suny,x
-inx
-cpx #$e7
-bne hidesun
-
-
 mainloop:
 	lda ZP.gameloop
 	beq mainloop
@@ -56,105 +46,7 @@ mainloop:
 	// increase gen counter tick once per frame
 	inc ZP.general_counter
 
-//	lda ZP.suncycle
-//	clc
-//	adc #$01
-//	cmp #$32
-//	bne nosunupdate  // only going to update every x cycles
-//	// got here, so need to update the sun
-//	clc
-//	lda ZP.sunpos + 0
-//	clc
-//	adc #$01
-//	bne
-//	// set msb
-//	lda #$01
-
-
-	// check if time to move the sun
-	lda ZP.general_counter
-	and #%00000111
-	bne nomovesun
-
-	// move the sun
-	inc ZP.sunpos
-	ldx ZP.sunpos
-	lda sunx, x
-	sta LABELS.sprXLO
-
-
-
-
-	// set msb	
-
-	//  msb needed sunpos 5b to a6
-	lda ZP.sunpos
-	cmp #$5b
-	bne sunmsboff
-	// set msb
-	lda LABELS.sprXHIbitsR
-	ora #%00000001
-	jmp sunendmsb
-	// clear msb
-	sunmsboff:
-	lda ZP.sunpos
-	cmp #$a6
-	bne sunendmsb2
-	lda LABELS.sprXHIbitsR
-	and #%11111110
-	sunendmsb:
-	sta LABELS.sprXHIbitsR
-	sunendmsb2:
-
-	// set y pos
-	lda suny, x
-	sta LABELS.sprY
-
-	// change sky colour at certain points
-	lda ZP.sunpos
-	cmp #$E0
-	bne skycolcheck2
-	lda #DARK_GREY
-	jmp setskycol
-	skycolcheck2:
-	cmp #$F0
-	bne skycolcheck3
-	lda #BLUE
-	jmp setskycol
-	skycolcheck3:
-	cmp #$00
-	bne skycolcheck4
-	lda #PURPLE
-	jmp setskycol
-	skycolcheck4:
-	cmp #$10
-	bne skycolcheck5
-	lda #LIGHT_BLUE
-	jmp setskycol
-	skycolcheck5:
-	cmp #$80
-	bne skycolcheck6
-	lda #PURPLE
-	jmp setskycol
-	skycolcheck6:
-	cmp #$90
-	bne skycolcheck7
-	lda #BLUE
-	jmp setskycol
-	skycolcheck7:
-	cmp #$a0
-	bne skycolcheck8
-	lda #DARK_GREY
-	jmp setskycol
-	skycolcheck8:
-	cmp #$b0
-	bne nomovesun
-	lda #BLACK
-	setskycol:
-	sta IRQ.skycol + 1
- //black  dg  db purp      lb    purp  db   dg  purple    black
-	nomovesun:
-
+	jsr TOD.tod		// move the sun, set split colours
 
 	// draw player
 	lda ZP.playerx
@@ -175,12 +67,6 @@ mainloop:
 rts
 
 
-sunsteps:
-suny:
-	.fill 256, -sin((i/256) * PI*2) * 41 + 91
-*=* "sunx"	
-sunx:
-	.fill 256, -cos((i/256) * PI*2) * 140 + 140 + 31
 
 
 *=* "Init"
@@ -191,6 +77,8 @@ sunx:
 #import "joystick.asm"
 *=* "scrolls"
 #import "scroll.asm"
+*=* "tod"
+#import "tod.asm"
 
 
 *=$4800 "charset"

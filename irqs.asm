@@ -128,6 +128,21 @@ hilltop2:
   	sta LABELS.border
   	sta LABELS.background
 
+  	// hide the sun as below the horizon
+  	// save current settings to restore at ocean split
+  	lda LABELS.sprXLO + 14
+  	sta ZP.sunx
+  	lda LABELS.sprXHIbitsR
+  	and #%10000000
+  	sta ZP.sunx + 1
+  	// move sun offscreen
+  	lda #$00
+  	sta LABELS.sprXLO + 14
+  	lda LABELS.sprXHIbitsR
+  	and #%01111111
+  	sta LABELS.sprXHIbitsR 
+
+
 	// update screen hscroll
 	lda LABELS.viccontrol2
 	and #%11111000
@@ -158,9 +173,11 @@ hilltop2:
 ice:
 	storestate()
 
+	icecol:
  	lda #WHITE
  	sta LABELS.border	
   	sta LABELS.background
+
 
 	// update hscroll pos
 	lda LABELS.viccontrol2
@@ -196,6 +213,14 @@ ocean:
 	lda #BLUE   
 	sta LABELS.border
   	sta LABELS.background
+
+  	// put the sun back where it belongs
+  	lda ZP.sunx
+  	sta LABELS.sprXLO + 14
+  	lda LABELS.sprXHIbitsR
+  	ora ZP.sunx+1
+  	sta LABELS.sprXHIbitsR
+
 
 	// temp reset hscroll until this one gets its own
 	lda LABELS.viccontrol2

@@ -8,17 +8,18 @@ Writing prg file: C:\docs\repos\sealculling\bin\main.prg
 Memory Map
 ----------
 Default-segment:
-  *$0002-$0015 Unnamed
+  *$0002-$0017 Unnamed
   $0801-$080d BASIC
-  $080e-$09b9 Assembly code
-  $09ba-$0ab9 sunx
-  $0aba-$1a05 Init
-  $1a06-$1b86 IRQs
-  $1b87-$1bd1 joystick.asm
-  $1bd2-$1c6e scrolls
-  $1c6f-$1e4f scrollhill1charsleft
-  $1e50-$2120 scrollhill2colourleft
-  $2121-$2d55 scrollleft
+  $080e-$0834 Assembly code
+  $0835-$17ab Init
+  $17ac-$1952 IRQs
+  $1953-$199d joystick.asm
+  $199e-$1a3a scrolls
+  $1a3b-$1c1b scrollhill1charsleft
+  $1c1c-$1eec scrollhill2colourleft
+  $1eed-$2b21 scrollleft
+  $2b22-$2cc1 tod
+  $2cc2-$2dc1 sunx
   $4800-$4fff charset
   $6000-$613f Sprite data
   $7000-$77ff Map ice

@@ -132,14 +132,19 @@ ldy #$df //'\'
 ldx #$a0 // reverse space
 
 .for(var i=0; i<37; i+=6) {
+	ldx #$20 //' '
 	stx LABELS.screenram + 9*40 + i
 	sta LABELS.screenram + 9*40 + i + 1
+	ldx #$a0 // reverse space
 	stx LABELS.screenram + 9*40 + i + 2
 	stx LABELS.screenram + 9*40 + i + 3
 	sty LABELS.screenram + 9*40 + i + 4
+	ldx #$20 //' '
 	stx LABELS.screenram + 9*40 + i + 5
 
 	}
+
+ldx #$a0 // reverse space
 
 .for(var i=0; i<40; i+=6) {
 	sta LABELS.screenram + 10*40 + i
@@ -227,13 +232,13 @@ sta ZP.suncycle
 // Enable sprite and set pointer
 // sun
 lda LABELS.sprEnableR
-ora #%00000001
+ora #%10000000
 sta LABELS.sprEnableR
 lda #$80
-sta LABELS.sprPointerR
+sta LABELS.sprPointerR + 7
 
 lda LABELS.sprPriorityR
-ora #%00000001
+ora #%10000000
 sta LABELS.sprPriorityR
 
 // player
@@ -263,11 +268,11 @@ sta LABELS.sprPointerR + 3
 // initial position sprites
 //sun
 lda #70
-sta LABELS.sprXLO
+sta LABELS.sprXLO + 14
 lda #70
-sta LABELS.sprY
+sta LABELS.sprY + 14
 lda #YELLOW
-sta LABELS.sprcolour
+sta LABELS.sprcolour + 7
 
 //player
 lda #100
@@ -295,16 +300,11 @@ lda #WHITE
 sta LABELS.sprcolour + 3
 
 
-
-
-
 rts
 
 
-
-
 hudtext:
-	 .text "  temperature        cash               "
+	 .text "  temp:             cash               "
 
 }
 

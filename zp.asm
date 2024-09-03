@@ -55,6 +55,9 @@ suncycle: // counter for how many frames between each sun pos
 	.byte 0	
 sunpos:		// current position of the sun 0 - 279
 	.byte 0, 0
+sunx:	// temp copy of x pos to restore after raster split hides it
+	.byte 0, 0
+
 
 }
 
