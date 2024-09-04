@@ -202,15 +202,28 @@ SCROLL: {
 
 
 	redrawicechars:
-*=* "scrollleft"
-	ldx ZP.mapicepos
+*=* "redrawicechars"
+/*	ldx ZP.mapicepos
 	.for(var j=11; j<19; j++) {
 		.for(var i=00; i<40; i++) {
-			//ldx #ZP.mapicepos
 			lda [mapice + [[j-11]*256] + i], x  //TODO - indexed x
 			sta LABELS.screenram + j*40 + i
 		}
 	}
+*/
+
+	// draw in columns - avoids line wrapping issue
+	ldx ZP.mapicepos
+	.for(var i=0; i<40; i++) {
+		.for(var j=0; j<8; j++) {
+			lda [mapice + [j * 256]], x
+			sta [LABELS.screenram + [ [[j+11]] * 40] + i]
+	
+		}
+		inx
+	}
+		
+
 	rts
 
 

@@ -3,6 +3,11 @@
 
 *=$7000 "Map ice"
 
+mapice:
+.import binary "sealmap.bin"
+
+
+/*
 .encoding "screencode_upper"
 
 // ice 8 rows of 256
@@ -88,5 +93,6 @@ mapice:
 .text "0123456789012345"
 
 
+*/
 
 

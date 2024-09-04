@@ -347,9 +347,9 @@ sta LABELS.sprcolour + 7
 //player
 lda #100
 sta ZP.playerx
-lda #158
+lda #166
 sta ZP.playery
-lda #BLACK
+lda #LIGHT_RED
 sta LABELS.sprcolour + 1
 //.break
 

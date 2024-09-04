@@ -1,5 +1,4 @@
 Output dir: C:\docs\repos\sealculling\bin
-User Arguments: afo=true
 parsing
 flex pass 1
 flex pass 2
@@ -18,9 +17,9 @@ Default-segment:
   $1a49-$1ae5 scrolls
   $1ae6-$1cc6 scrollhill1charsleft
   $1cc7-$1f97 scrollhill2colourleft
-  $1f98-$2bcc scrollleft
-  $2bcd-$2d9d tod
-  $2d9e-$2ea7 sunx
+  $1f98-$2bf4 redrawicechars
+  $2bf5-$2dc5 tod
+  $2dc6-$2ecf sunx
   $4800-$4fff charset
   $6000-$61bf Sprite data
   $7000-$77ff Map ice
