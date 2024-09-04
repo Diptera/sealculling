@@ -231,6 +231,7 @@ sta LABELS.screencolourram + [23 * 40] + 16
 sta LABELS.screencolourram + [23 * 40] + 17
 sta LABELS.screencolourram + [23 * 40] + 18
 sta LABELS.screencolourram + [23 * 40] + 19
+sta LABELS.screencolourram + [23 * 40] + 20
 
 
 //.break
@@ -252,9 +253,9 @@ bne setnightsunpos
 lda #00
 sta ZP.suncycle
 
-lda #$74
+lda #$71  // $71
 sta ZP.playertemperature
-lda #50
+lda #01 	// 1 so that it ticks immediately and triggers redraw
 sta ZP.playertemperaturetick
 
 

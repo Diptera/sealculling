@@ -104,6 +104,72 @@ TOD: {
 	nomovesun:
 
 
+
+	// tick player temp down
+	dec ZP.playertemperaturetick
+	bpl notemptick  
+	lda #50
+	sta ZP.playertemperaturetick
+	dec ZP.playertemperature
+
+	// been a tick, so redraw
+	// draw player temperature (val $74-$0) starting at r23c8
+	//.break
+	ldx #$00 // start of draw location
+	lda ZP.playertemperature
+	nexttempchar:
+	cmp #$08 // can we subtract 8 from it?
+	bcs drawfull
+	// no, grab final char from table
+	tay
+	lda playertemperaturechars,y
+	sta LABELS.screenram + [23 * 40] + 08, x
+	// bung a blank space after to remove any residual
+	lda #32
+	inx
+	sta LABELS.screenram + [23 * 40] + 08, x
+	jmp plottempend  // saves iterating through remaining char spaces
+	drawfull:
+	// more than 8, so plot a full char and subtract 8
+	sec
+	sbc #$08
+	tay			// temp store A as need to use it to plot a char
+	lda #160  // full 8 pixel char
+	plottempchar:
+	sta LABELS.screenram + [23 * 40] + 08, x
+	tya			// restore the saved A
+	inx			// move to next charspace
+	cpx #12
+	bne nexttempchar
+	plottempend:
+	notemptick:
+
+/*
+	6f and 6e draw same
+
+	start  	cmp	NVZC   	expected			actual
+	(112) 	70   9 			14 * 8
+	(111)   6f  9           13 * 8, 7
+	(110)   6e   9          13 * 8, 6
+	(109)    6d    9        12 * 8, 5
+	(108)    6c   9         12 * 8, 4
+	    0a	 9	0001 	8 2
+		09	 9  0011    8 1
+		08  9   1000    8  
+		07  9   1000    7
+		06  9            
+		05  9
+		04  9
+		03  9
+		02  9
+		01  9
+		00 	9  1000     nothing		
+
+*/
+
+
+
+
 rts
 
 
@@ -113,6 +179,13 @@ suny:
 *=* "sunx"	
 sunx:
 	.fill 256, -cos((i/256) * PI*2) * 140 + 140 + 31
+
+
+playertemperaturechars: // 0 - 8 lines
+.byte 32 
+.byte 101, 116, 117, 97, 246, 231, 234
+.byte 160  // full
+.byte 32
 
 
 }

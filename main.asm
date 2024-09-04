@@ -55,43 +55,6 @@ mainloop:
 	sta [LABELS.sprY + 2]
 
 
-	// tick temp down
-	dec ZP.playertemperaturetick
-	bne notemptick
-	lda #50
-	sta ZP.playertemperaturetick
-	dec ZP.playertemperature
-	notemptick:
-
-
-	// draw player temperature (val $74-$0) starting at r23c8
-	//.break
-	ldx #$00 // start of draw location
-	lda ZP.playertemperature
-	nexttempchar:
-	cmp #$08  // can we subtract 8 from it?
-	bpl drawfull
-	// no, work out what final char should be
-	tay
-	lda playertemperaturechars,y
-	ldy #$00
-	jmp plottempchar
-	drawfull:
-	// more than 8, so plot a full char
-	clc
-	sbc #$08
-	tay
-	lda #160  // full 8 pixel char
-	plottempchar:
-	sta LABELS.screenram + [23 * 40] + 08, x
-	tya
-	inx
-	cpx #12
-	bne nexttempchar
-
-
-
-
 	jsr JOYSTICK.processjoystick
 
 	jsr SCROLL.mainscroll
@@ -105,8 +68,6 @@ mainloop:
 rts
 
 
-playertemperaturechars: // 0 - 8 lines
-.byte 32, 101, 116, 117, 97, 246, 231, 234, 160
 
 
 

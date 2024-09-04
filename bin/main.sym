@@ -1,35 +1,30 @@
 .namespace sealcullingforbeginners {
   .label mainloop=$811
-  .label nexttempchar=$834
-  .label playertemperaturechars=$85f
-  .label notemptick=$830
-  .label drawfull=$841
-  .label plottempchar=$847
 }
-.label INIT=$868 {
-  .label init=$868
-  .label hudtext=$1839
-  .label setnightsunpos=$176b
-  .label huddraw=$1734
+.label INIT=$835 {
+  .label init=$835
+  .label hudtext=$1809
+  .label setnightsunpos=$173b
+  .label huddraw=$1701
 }
 .label mapice=$7000
-.label SCROLL=$1a79 {
-  .label scrollhill1charsleft=$1b16
-  .label doscrolliceleft=$1aab
-  .label mainscroll=$1a79
-  .label scrollhill2charsleft=$1cf7
-  .label scrollleft=$1a81
-  .label noscrollhill1left=$1a94
-  .label noscrolliceleft=$1abc
-  .label scrollright=$1ac1
-  .label noscrolliceright=$1b11
-  .label noscrollhill1right=$1adb
-  .label noscrollhill2right=$1af5
-  .label scrollhill1charsright=$274b
-  .label noscrollhill2left=$1aa7
-  .label scrollhill2charsright=$292c
-  .label doscrollice2left=$1ab3
-  .label redrawicechars=$1fc8
+.label SCROLL=$1a49 {
+  .label scrollhill1charsleft=$1ae6
+  .label doscrolliceleft=$1a7b
+  .label mainscroll=$1a49
+  .label scrollhill2charsleft=$1cc7
+  .label scrollleft=$1a51
+  .label noscrollhill1left=$1a64
+  .label noscrolliceleft=$1a8c
+  .label scrollright=$1a91
+  .label noscrolliceright=$1ae1
+  .label noscrollhill1right=$1aab
+  .label noscrollhill2right=$1ac5
+  .label scrollhill1charsright=$271b
+  .label noscrollhill2left=$1a77
+  .label scrollhill2charsright=$28fc
+  .label doscrollice2left=$1a83
+  .label redrawicechars=$1f98
 }
 .label ZP=$2 {
   .label gameloop=$2
@@ -55,53 +50,59 @@
   .label scrollpos_hilltop1=$4
   .label playertemperature=$18
 }
-.label JOYSTICK=$1a2e {
-  .label actionleft=$1a48
-  .label checkleft=$1a33
-  .label noaction=$1a45
-  .label checkright=$1a3c
-  .label moveplayerright=$1a71
-  .label actionright=$1a5e
-  .label processjoystick=$1a2e
-  .label moveplayerleft=$1a5b
-  .label endjoystick=$1a74
+.label JOYSTICK=$19fe {
+  .label actionleft=$1a18
+  .label checkleft=$1a03
+  .label noaction=$1a15
+  .label checkright=$1a0c
+  .label moveplayerright=$1a41
+  .label actionright=$1a2e
+  .label processjoystick=$19fe
+  .label moveplayerleft=$1a2b
+  .label endjoystick=$1a44
 }
-.label TOD=$2bfd {
-  .label skycolcheck6=$2c71
-  .label setskycol=$2c93
-  .label sunendmsb2=$2c32
-  .label skycolcheck5=$2c66
-  .label skycolcheck8=$2c8b
-  .label skycolcheck7=$2c7e
-  .label skycolcheck2=$2c45
-  .label sunendmsb=$2c2f
-  .label skycolcheck4=$2c5d
-  .label skycolcheck3=$2c52
-  .label tod=$2bfd
-  .label sunmsboff=$2c24
-  .label domovesun=$2c06
-  .label nomovesun=$2c9c
-  .label sunx=$2d9d
-  .label sunsteps=$2c9d
-  .label suny=$2c9d
+.label TOD=$2bcd {
+  .label skycolcheck6=$2c41
+  .label setskycol=$2c63
+  .label sunendmsb2=$2c02
+  .label skycolcheck5=$2c36
+  .label skycolcheck8=$2c5b
+  .label skycolcheck7=$2c4e
+  .label skycolcheck2=$2c15
+  .label sunendmsb=$2bff
+  .label skycolcheck4=$2c2d
+  .label skycolcheck3=$2c22
+  .label tod=$2bcd
+  .label sunmsboff=$2bf4
+  .label nexttempchar=$2c7a
+  .label notemptick=$2c9d
+  .label drawfull=$2c8e
+  .label domovesun=$2bd6
+  .label plottempchar=$2c94
+  .label nomovesun=$2c6c
+  .label plottempend=$2c9d
+  .label playertemperaturechars=$2e9e
+  .label sunx=$2d9e
+  .label sunsteps=$2c9e
+  .label suny=$2c9e
 }
-.label IRQ=$1861 {
-  .label sky=$18b9 {
+.label IRQ=$1831 {
+  .label sky=$1889 {
   }
-  .label hilltop1=$18ee {
+  .label hilltop1=$18be {
   }
-  .label hilltop2=$191a {
+  .label hilltop2=$18ea {
   }
-  .label ocean=$19b8 {
+  .label ocean=$1988 {
   }
-  .label skycol=$18be
-  .label hud=$1a07 {
+  .label skycol=$188e
+  .label hud=$19d7 {
   }
-  .label irqinit=$1861
-  .label ice=$1975 {
+  .label irqinit=$1831
+  .label ice=$1945 {
   }
-  .label icecol=$197a
-  .label vblank=$188e {
+  .label icecol=$194a
+  .label vblank=$185e {
   }
 }
 .label LABELS=$2000 {
