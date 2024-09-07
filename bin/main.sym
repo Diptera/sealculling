@@ -1,30 +1,34 @@
 .namespace sealcullingforbeginners {
   .label mainloop=$811
 }
+.label maphud=$79c8
 .label INIT=$835 {
   .label init=$835
-  .label hudtext=$1809
-  .label setnightsunpos=$173b
-  .label huddraw=$1701
+  .label hudnextchar=$1307
+  .label setnightsunpos=$1341
+  .label hilltop2nextchar=$991
+  .label hilltop1nextchar=$894
 }
-.label mapice=$7000
-.label SCROLL=$1a49 {
-  .label scrollhill1charsleft=$1ae6
-  .label doscrolliceleft=$1a7b
-  .label mainscroll=$1a49
-  .label scrollhill2charsleft=$1cc7
-  .label scrollleft=$1a51
-  .label noscrollhill1left=$1a64
-  .label noscrolliceleft=$1a8c
-  .label scrollright=$1a91
-  .label noscrolliceright=$1ae1
-  .label noscrollhill1right=$1aab
-  .label noscrollhill2right=$1ac5
-  .label scrollhill1charsright=$2743
-  .label noscrollhill2left=$1a77
-  .label scrollhill2charsright=$2924
-  .label doscrollice2left=$1a83
-  .label redrawicechars=$1f98
+.label maphill1=$7000
+.label maphill2=$7050
+.label mapice=$70c8
+.label SCROLL=$1627 {
+  .label scrollhill1charsleft=$16c4
+  .label doscrolliceleft=$1659
+  .label mainscroll=$1627
+  .label scrollhill2charsleft=$18a5
+  .label scrollleft=$162f
+  .label noscrollhill1left=$1642
+  .label noscrolliceleft=$166a
+  .label scrollright=$166f
+  .label noscrolliceright=$16bf
+  .label noscrollhill1right=$1689
+  .label noscrollhill2right=$16a3
+  .label scrollhill1charsright=$2411
+  .label noscrollhill2left=$1655
+  .label scrollhill2charsright=$25f2
+  .label doscrollice2left=$1661
+  .label redrawicechars=$1b76
 }
 .label ZP=$2 {
   .label gameloop=$2
@@ -50,59 +54,59 @@
   .label scrollpos_hilltop1=$4
   .label playertemperature=$18
 }
-.label JOYSTICK=$19fe {
-  .label actionleft=$1a18
-  .label checkleft=$1a03
-  .label noaction=$1a15
-  .label checkright=$1a0c
-  .label moveplayerright=$1a41
-  .label actionright=$1a2e
-  .label processjoystick=$19fe
-  .label moveplayerleft=$1a2b
-  .label endjoystick=$1a44
+.label JOYSTICK=$15dc {
+  .label actionleft=$15f6
+  .label checkleft=$15e1
+  .label noaction=$15f3
+  .label checkright=$15ea
+  .label moveplayerright=$161f
+  .label actionright=$160c
+  .label processjoystick=$15dc
+  .label moveplayerleft=$1609
+  .label endjoystick=$1622
 }
-.label TOD=$2bf5 {
-  .label skycolcheck6=$2c69
-  .label setskycol=$2c8b
-  .label sunendmsb2=$2c2a
-  .label skycolcheck5=$2c5e
-  .label skycolcheck8=$2c83
-  .label skycolcheck7=$2c76
-  .label skycolcheck2=$2c3d
-  .label sunendmsb=$2c27
-  .label skycolcheck4=$2c55
-  .label skycolcheck3=$2c4a
-  .label tod=$2bf5
-  .label sunmsboff=$2c1c
-  .label nexttempchar=$2ca2
-  .label notemptick=$2cc5
-  .label drawfull=$2cb6
-  .label domovesun=$2bfe
-  .label plottempchar=$2cbc
-  .label nomovesun=$2c94
-  .label plottempend=$2cc5
-  .label playertemperaturechars=$2ec6
-  .label sunx=$2dc6
-  .label sunsteps=$2cc6
-  .label suny=$2cc6
+.label TOD=$28c3 {
+  .label skycolcheck6=$2937
+  .label setskycol=$2959
+  .label sunendmsb2=$28f8
+  .label skycolcheck5=$292c
+  .label skycolcheck8=$2951
+  .label skycolcheck7=$2944
+  .label skycolcheck2=$290b
+  .label sunendmsb=$28f5
+  .label skycolcheck4=$2923
+  .label skycolcheck3=$2918
+  .label tod=$28c3
+  .label sunmsboff=$28ea
+  .label nexttempchar=$2970
+  .label notemptick=$2993
+  .label drawfull=$2984
+  .label domovesun=$28cc
+  .label plottempchar=$298a
+  .label nomovesun=$2962
+  .label plottempend=$2993
+  .label playertemperaturechars=$2b94
+  .label sunx=$2a94
+  .label sunsteps=$2994
+  .label suny=$2994
 }
-.label IRQ=$1831 {
-  .label sky=$1889 {
+.label IRQ=$140f {
+  .label sky=$1467 {
   }
-  .label hilltop1=$18be {
+  .label hilltop1=$149c {
   }
-  .label hilltop2=$18ea {
+  .label hilltop2=$14c8 {
   }
-  .label ocean=$1988 {
+  .label ocean=$1566 {
   }
-  .label skycol=$188e
-  .label hud=$19d7 {
+  .label skycol=$146c
+  .label hud=$15b5 {
   }
-  .label irqinit=$1831
-  .label ice=$1945 {
+  .label irqinit=$140f
+  .label ice=$1523 {
   }
-  .label icecol=$194a
-  .label vblank=$185e {
+  .label icecol=$1528
+  .label vblank=$143c {
   }
 }
 .label LABELS=$2000 {

@@ -215,7 +215,7 @@ SCROLL: {
 	// draw in columns - avoids line wrapping issue
 	ldx ZP.mapicepos
 	.for(var i=0; i<40; i++) {
-		.for(var j=0; j<8; j++) {
+		.for(var j=0; j<9; j++) {
 			lda [mapice + [j * 256]], x
 			sta [LABELS.screenram + [ [[j+11]] * 40] + i]
 	

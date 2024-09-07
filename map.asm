@@ -1,10 +1,53 @@
 // mapdata
 
+*=$7000 "Maps"
 
-*=$7000 "Map ice"
+maphill1:
+// set hilltop1 (row 6-7) chars 
+// /\
+///  \
+//lda #$e9 //'/'
+//ldx #$20 //' '
+//ldy #$df //'\'
+
+.byte $20,$e9,$df,$20, $20,$e9,$df,$20, $20,$e9,$df,$20, $20,$e9,$df,$20, $20,$e9,$df,$20
+.byte $20,$e9,$df,$20, $20,$e9,$df,$20, $20,$e9,$df,$20, $20,$e9,$df,$20, $20,$e9,$df,$20
+
+.byte $e9,$a0,$a0,$df, $e9,$a0,$a0,$df, $e9,$a0,$a0,$df, $e9,$a0,$a0,$df, $e9,$a0,$a0,$df
+.byte $e9,$a0,$a0,$df, $e9,$a0,$a0,$df, $e9,$a0,$a0,$df, $e9,$a0,$a0,$df, $e9,$a0,$a0,$df
+
+
+maphill2:
+// set hilltop2 (row 8-10) chars 
+//  /\
+// /  \
+///    \
+//lda #$e9 //'/'
+//ldx #$20 //' '
+//ldy #$df //'\'
+
+.byte $20,$20,$e9,$df,$20,$20, $20,$20,$e9,$df,$20,$20, $20,$20,$e9,$df,$20,$20, $20,$20,$e9,$df,$20,$20
+.byte $20,$20,$e9,$df,$20,$20, $20,$20,$e9,$df,$20,$20, $20,$20,$20,$20
+
+.byte $20,$e9,$a0,$a0,$df,$20, $20,$e9,$a0,$a0,$df,$20, $20,$e9,$a0,$a0,$df,$20, $20,$e9,$a0,$a0,$df,$20
+.byte $20,$e9,$a0,$a0,$df,$20, $20,$e9,$a0,$a0,$df,$20, $20,$e9,$df,$20
+
+.byte $e9,$a0,$a0,$a0,$a0,$df, $e9,$a0,$a0,$a0,$a0,$df, $e9,$a0,$a0,$a0,$a0,$df, $e9,$a0,$a0,$a0,$a0,$df
+.byte $e9,$a0,$a0,$a0,$a0,$df, $e9,$a0,$a0,$a0,$a0,$df, $e9,$a0,$a0,$df
+
+
 
 mapice:
 .import binary "sealmap.bin"
+
+
+maphud:
+.text "                                        "
+.text "  temp:               cash:             "
+.text "                                        "
+
+
+
 
 
 /*

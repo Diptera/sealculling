@@ -16,7 +16,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x66d82dad
+random seed was: 0x66dc71e9
 command line was: x64sc -logfile C:\docs\repos\sealculling/bin/main_ViceLog.txt -moncommands C:\docs\repos\sealculling/bin/main.vs C:\docs\repos\sealculling/bin/main.prg
 VICE system file directory: C:\C64\Tools\Vice\bin\...
 Loading system file `C:\C64\Tools\Vice\bin\..\C64\kernal-901227-03.bin'.
@@ -85,139 +85,143 @@ Error - no CRT header found.
 CART: 'C:\docs\repos\sealculling/bin/main.prg' is not a valid CRT file.
 AUTOSTART: Loading PRG file `C:\docs\repos\sealculling/bin/main.prg' with direct RAM injection.
 AUTOSTART: Resetting the machine to autostart '*'
-VIC-II: VSP Bug: safe channels are: 2346. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 12. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `C:\docs\repos\sealculling/bin/main.prg' recognized as program/p00 file.
 Monitor playback command: al C:2 .gameloop
 Monitor playback command: al C:9 .scrollercounteroriginal_hilltop2
 Monitor playback command: al C:6 .scrollercounteroriginal_hilltop1
 Monitor playback command: al C:c .scrollercounteroriginal_ice
-Monitor playback command: al C:1831 .irqinit
-Monitor playback command: al C:2cc5 .plottempend
+Monitor playback command: al C:7000 .maphill1
+Monitor playback command: al C:7050 .maphill2
+Monitor playback command: al C:140f .irqinit
+Monitor playback command: al C:2993 .plottempend
 Monitor playback command: al C:fffe .loirq
-Monitor playback command: al C:1889 .sky
+Monitor playback command: al C:1467 .sky
 Monitor playback command: al C:835 .init
 Monitor playback command: al C:10 .playerx
-Monitor playback command: al C:7000 .mapice
+Monitor playback command: al C:70c8 .mapice
 Monitor playback command: al C:d019 .interruptR
-Monitor playback command: al C:2c27 .sunendmsb
-Monitor playback command: al C:1a41 .moveplayerright
+Monitor playback command: al C:28f5 .sunendmsb
+Monitor playback command: al C:161f .moveplayerright
 Monitor playback command: al C:d012 .loraster
 Monitor playback command: al C:d01a .interruptE
-Monitor playback command: al C:2bf5 .TOD
-Monitor playback command: al C:2ca2 .nexttempchar
-Monitor playback command: al C:1a8c .noscrolliceleft
+Monitor playback command: al C:28c3 .TOD
+Monitor playback command: al C:2970 .nexttempchar
+Monitor playback command: al C:991 .hilltop2nextchar
+Monitor playback command: al C:166a .noscrolliceleft
 Monitor playback command: al C:11 .playery
 Monitor playback command: al C:ffff .hiirq
 Monitor playback command: al C:835 .INIT
-Monitor playback command: al C:1a0c .checkright
+Monitor playback command: al C:15ea .checkright
 Monitor playback command: al C:2 .ZP
 Monitor playback command: al C:d800 .screencolourram
 Monitor playback command: al C:18 .playertemperature
-Monitor playback command: al C:1809 .hudtext
 Monitor playback command: al C:d011 .hiraster
 Monitor playback command: al C:4000 .screenram
-Monitor playback command: al C:2bf5 .tod
-Monitor playback command: al C:1831 .IRQ
-Monitor playback command: al C:2cc5 .notemptick
-Monitor playback command: al C:1a91 .scrollright
-Monitor playback command: al C:1ae1 .noscrolliceright
-Monitor playback command: al C:2cbc .plottempchar
-Monitor playback command: al C:1a18 .actionleft
+Monitor playback command: al C:28c3 .tod
+Monitor playback command: al C:140f .IRQ
+Monitor playback command: al C:2993 .notemptick
+Monitor playback command: al C:166f .scrollright
+Monitor playback command: al C:16bf .noscrolliceright
+Monitor playback command: al C:298a .plottempchar
+Monitor playback command: al C:15f6 .actionleft
 Monitor playback command: al C:811 .mainloop
-Monitor playback command: al C:18be .hilltop1
-Monitor playback command: al C:18ea .hilltop2
-Monitor playback command: al C:1701 .huddraw
+Monitor playback command: al C:149c .hilltop1
+Monitor playback command: al C:14c8 .hilltop2
 Monitor playback command: al C:14 .sunpos
-Monitor playback command: al C:2cb6 .drawfull
-Monitor playback command: al C:185e .vblank
+Monitor playback command: al C:2984 .drawfull
+Monitor playback command: al C:143c .vblank
 Monitor playback command: al C:43f8 .sprPointerR
-Monitor playback command: al C:1ac5 .noscrollhill2right
+Monitor playback command: al C:16a3 .noscrollhill2right
 Monitor playback command: al C:d001 .sprY
 Monitor playback command: al C:d01b .sprPriorityR
 Monitor playback command: al C:a .scrollpos_ice
 Monitor playback command: al C:b .scrollercounter_ice
 Monitor playback command: al C:d025 .sprMCol1R
-Monitor playback command: al C:2743 .scrollhill1charsright
-Monitor playback command: al C:2ec6 .playertemperaturechars
-Monitor playback command: al C:1a77 .noscrollhill2left
+Monitor playback command: al C:2411 .scrollhill1charsright
+Monitor playback command: al C:2b94 .playertemperaturechars
+Monitor playback command: al C:1655 .noscrollhill2left
 Monitor playback command: al C:d01c .sprMultiColR
-Monitor playback command: al C:2c69 .skycolcheck6
-Monitor playback command: al C:1ae6 .scrollhill1charsleft
-Monitor playback command: al C:2c2a .sunendmsb2
-Monitor playback command: al C:2c5e .skycolcheck5
-Monitor playback command: al C:2c83 .skycolcheck8
-Monitor playback command: al C:2c76 .skycolcheck7
-Monitor playback command: al C:2c3d .skycolcheck2
-Monitor playback command: al C:2c55 .skycolcheck4
-Monitor playback command: al C:19fe .JOYSTICK
-Monitor playback command: al C:2c4a .skycolcheck3
-Monitor playback command: al C:1945 .ice
-Monitor playback command: al C:1a44 .endjoystick
-Monitor playback command: al C:2bfe .domovesun
-Monitor playback command: al C:1aab .noscrollhill1right
+Monitor playback command: al C:2937 .skycolcheck6
+Monitor playback command: al C:16c4 .scrollhill1charsleft
+Monitor playback command: al C:28f8 .sunendmsb2
+Monitor playback command: al C:292c .skycolcheck5
+Monitor playback command: al C:2951 .skycolcheck8
+Monitor playback command: al C:2944 .skycolcheck7
+Monitor playback command: al C:290b .skycolcheck2
+Monitor playback command: al C:2923 .skycolcheck4
+Monitor playback command: al C:15dc .JOYSTICK
+Monitor playback command: al C:2918 .skycolcheck3
+Monitor playback command: al C:1523 .ice
+Monitor playback command: al C:1622 .endjoystick
+Monitor playback command: al C:28cc .domovesun
+Monitor playback command: al C:1689 .noscrollhill1right
+Monitor playback command: al C:79c8 .maphud
 Monitor playback command: al C:d01d .sprDWidthR
-Monitor playback command: al C:173b .setnightsunpos
+Monitor playback command: al C:1341 .setnightsunpos
 Monitor playback command: al C:d01e .sprCollideSR
 Monitor playback command: al C:d026 .sprMCol2R
 Monitor playback command: al C:19 .playertemperaturetick
 Monitor playback command: al C:d000 .sprXLO
 Monitor playback command: al C:16 .sunx__0
-Monitor playback command: al C:2dc6 .sunx__1
-Monitor playback command: al C:2cc6 .suny
+Monitor playback command: al C:2a94 .sunx__1
+Monitor playback command: al C:2994 .suny
 Monitor playback command: al C:2000 .LABELS
-Monitor playback command: al C:2924 .scrollhill2charsright
-Monitor playback command: al C:1a83 .doscrollice2left
+Monitor playback command: al C:25f2 .scrollhill2charsright
+Monitor playback command: al C:1661 .doscrollice2left
 Monitor playback command: al C:d .scrolldirection
-Monitor playback command: al C:1f98 .redrawicechars
+Monitor playback command: al C:1b76 .redrawicechars
 Monitor playback command: al C:d020 .border
 Monitor playback command: al C:d018 .vicmemory
 Monitor playback command: al C:d01f .sprCollideBR
-Monitor playback command: al C:1a49 .mainscroll
-Monitor playback command: al C:2c1c .sunmsboff
-Monitor playback command: al C:1cc7 .scrollhill2charsleft
-Monitor playback command: al C:1a51 .scrollleft
-Monitor playback command: al C:1a2b .moveplayerleft
+Monitor playback command: al C:1627 .mainscroll
+Monitor playback command: al C:28ea .sunmsboff
+Monitor playback command: al C:18a5 .scrollhill2charsleft
+Monitor playback command: al C:162f .scrollleft
+Monitor playback command: al C:1609 .moveplayerleft
 Monitor playback command: al C:d010 .sprXHIbitsR
 Monitor playback command: al C:d016 .viccontrol2
-Monitor playback command: al C:1988 .ocean
-Monitor playback command: al C:1a49 .SCROLL
+Monitor playback command: al C:1566 .ocean
+Monitor playback command: al C:1627 .SCROLL
 Monitor playback command: al C:d021 .background
 Monitor playback command: al C:12 .mapicepos
-Monitor playback command: al C:1a03 .checkleft
+Monitor playback command: al C:15e1 .checkleft
 Monitor playback command: al C:d015 .sprEnableR
 Monitor playback command: al C:d027 .sprcolour
-Monitor playback command: al C:1a2e .actionright
-Monitor playback command: al C:2c94 .nomovesun
+Monitor playback command: al C:160c .actionright
+Monitor playback command: al C:2962 .nomovesun
 Monitor playback command: al C:5 .scrollercounter_hilltop1
 Monitor playback command: al C:13 .suncycle
-Monitor playback command: al C:194a .icecol
+Monitor playback command: al C:1528 .icecol
 Monitor playback command: al C:8 .scrollercounter_hilltop2
 Monitor playback command: al C:7 .scrollpos_hilltop2
 Monitor playback command: al C:4 .scrollpos_hilltop1
-Monitor playback command: al C:2c8b .setskycol
+Monitor playback command: al C:2959 .setskycol
+Monitor playback command: al C:1307 .hudnextchar
 Monitor playback command: al C:d017 .sprDHeightR
-Monitor playback command: al C:188e .skycol
-Monitor playback command: al C:1a7b .doscrolliceleft
-Monitor playback command: al C:1a64 .noscrollhill1left
+Monitor playback command: al C:146c .skycol
+Monitor playback command: al C:1659 .doscrolliceleft
+Monitor playback command: al C:1642 .noscrollhill1left
 Monitor playback command: al C:dd00 .VICbank
 Monitor playback command: al C:dc00 .joystick2__0
 Monitor playback command: al C:e .joystick2__1
 Monitor playback command: al C:dc01 .joystick1__0
 Monitor playback command: al C:f .joystick1__1
 Monitor playback command: al C:801 .basicstart
-Monitor playback command: al C:1a15 .noaction
-Monitor playback command: al C:19d7 .hud
+Monitor playback command: al C:894 .hilltop1nextchar
+Monitor playback command: al C:15f3 .noaction
+Monitor playback command: al C:15b5 .hud
 Monitor playback command: al C:3 .general_counter
-Monitor playback command: al C:19fe .processjoystick
-Monitor playback command: al C:2cc6 .sunsteps
+Monitor playback command: al C:15dc .processjoystick
+Monitor playback command: al C:2994 .sunsteps
 Closed monitor command playback file: C:\docs\repos\sealculling/bin/main.vs
 Main CPU: RESET.
 Sound: Opened device `dx', speed 48000Hz, fragment size 2.67ms, buffer size 32.00ms
 reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
 Sync reset
 Unit 8: RESET.
-AUTOSTART: Injecting program data at $0801 (size $6fff)
+AUTOSTART: Injecting program data at $0801 (size $723f)
 AUTOSTART: Ready
 AUTOSTART: Turning Warp mode off.
 AUTOSTART: Starting program.
@@ -245,8 +249,8 @@ MonitorWidth=736
 MonitorHeight=434
 Window0Height=982
 Window0Width=1661
-Window0Xpos=1958
-Window0Ypos=17
+Window0Xpos=115
+Window0Ypos=1
 VirtualDevice1=1
 VICIIPaletteFile="pepto-pal.vpl"
 VICIIExternalPalette=1
@@ -254,12 +258,12 @@ VICIIFilter=0
 AutostartPrgMode=1
 
 reconstructed commandline options (might be incomplete):
--default -logfile "C:\docs\repos\sealculling/bin/main_ViceLog.txt" +confirmonexit -saveres -monitorxpos "1942" -monitorypos "52" -monitorwidth "736" -monitorheight "434" -windowxpos "1958" -windowypos "17" -windowwidth "1661" -windowheight "982" -virtualdev1 -VICIIfilter "0" -VICIIextpal -VICIIpalette "pepto-pal.vpl" -autostartprgmode "1"
+-default -logfile "C:\docs\repos\sealculling/bin/main_ViceLog.txt" +confirmonexit -saveres -monitorxpos "1942" -monitorypos "52" -monitorwidth "736" -monitorheight "434" -windowxpos "115" -windowypos "1" -windowwidth "1661" -windowheight "982" -virtualdev1 -VICIIfilter "0" -VICIIextpal -VICIIpalette "pepto-pal.vpl" -autostartprgmode "1"
 
 VICE thread initiating shutdown
 VICE thread is exiting
 VICE thread has been joined.
 Writing configuration file `C:\Users\Diptera\AppData\Roaming\vice\vice.ini'.
-VIC-II: VSP Bug: safe channels are: 03457. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 02346. Emulation of memory corruption is disabled.
 Sound: Closing device `dx'
 Hotkeys: shutting down.

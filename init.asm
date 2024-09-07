@@ -79,25 +79,34 @@ sta LABELS.viccontrol2
 // set hilltop1 (row 6-7) chars 
 // /\
 ///  \
-lda #$e9 //'/'
-ldx #$20 //' '
-ldy #$df //'\'
+//lda #$e9 //'/'
+//ldx #$20 //' '
+//ldy #$df //'\'
 
-.for(var i=0; i<40; i+=4) {
-	stx LABELS.screenram + 6*40 + i
-	sta LABELS.screenram + 6*40 + i + 1
-	sty LABELS.screenram + 6*40 + i + 2
-	stx LABELS.screenram + 6*40 + i + 3
-	}
+// load hilltop1 data
+ldx #79
+hilltop1nextchar:
+lda maphill1,x
+sta [LABELS.screenram + [6*40]],x
+dex
+bpl hilltop1nextchar
 
-ldx #$a0 // reverse space
 
-.for(var i=0; i<40; i+=4) {
-	sta LABELS.screenram + 7*40 + i
-	stx LABELS.screenram + 7*40 + i + 1
-	stx LABELS.screenram + 7*40 + i + 2
-	sty LABELS.screenram + 7*40 + i + 3
-	}
+//.for(var i=0; i<40; i+=4) {
+//	stx LABELS.screenram + 6*40 + i
+//	sta LABELS.screenram + 6*40 + i + 1
+//	sty LABELS.screenram + 6*40 + i + 2
+//	stx LABELS.screenram + 6*40 + i + 3
+//	}
+
+//ldx #$a0 // reverse space
+
+//.for(var i=0; i<40; i+=4) {
+//	sta LABELS.screenram + 7*40 + i
+//	stx LABELS.screenram + 7*40 + i + 1
+//	stx LABELS.screenram + 7*40 + i + 2
+//	sty LABELS.screenram + 7*40 + i + 3
+//	}
 
 
 // set hilltop1 colours
@@ -116,44 +125,54 @@ lda #DARK_GREY
 //  /\
 // /  \
 ///    \
-lda #$e9 //'/'
-ldx #$20 //' '
-ldy #$df //'\'
+//lda #$e9 //'/'
+//ldx #$20 //' '
+//ldy #$df //'\'
 
-.for(var i=0; i<37; i+=6) {
-	stx LABELS.screenram + 8*40 + i
-	stx LABELS.screenram + 8*40 + i + 1
-	sta LABELS.screenram + 8*40 + i + 2
-	sty LABELS.screenram + 8*40 + i + 3
-	stx LABELS.screenram + 8*40 + i + 4
-	stx LABELS.screenram + 8*40 + i + 5
-	}
 
-ldx #$a0 // reverse space
+// loadhilltop2 data
+ldx #119
+hilltop2nextchar:
+lda maphill2,x
+sta [LABELS.screenram + [8*40]],x
+dex
+bpl hilltop2nextchar
 
-.for(var i=0; i<37; i+=6) {
-	ldx #$20 //' '
-	stx LABELS.screenram + 9*40 + i
-	sta LABELS.screenram + 9*40 + i + 1
-	ldx #$a0 // reverse space
-	stx LABELS.screenram + 9*40 + i + 2
-	stx LABELS.screenram + 9*40 + i + 3
-	sty LABELS.screenram + 9*40 + i + 4
-	ldx #$20 //' '
-	stx LABELS.screenram + 9*40 + i + 5
 
-	}
 
-ldx #$a0 // reverse space
+//.for(var i=0; i<37; i+=6) {
+//	stx LABELS.screenram + 8*40 + i
+//	stx LABELS.screenram + 8*40 + i + 1
+//	sta LABELS.screenram + 8*40 + i + 2
+//	sty LABELS.screenram + 8*40 + i + 3
+//	stx LABELS.screenram + 8*40 + i + 4
+//	stx LABELS.screenram + 8*40 + i + 5
+//	}
 
-.for(var i=0; i<40; i+=6) {
-	sta LABELS.screenram + 10*40 + i
-	stx LABELS.screenram + 10*40 + i + 1
-	stx LABELS.screenram + 10*40 + i + 2
-	stx LABELS.screenram + 10*40 + i + 3
-	stx LABELS.screenram + 10*40 + i + 4
-	sty LABELS.screenram + 10*40 + i + 5
-	}
+//ldx #$a0 // reverse space
+
+//.for(var i=0; i<37; i+=6) {
+//	ldx #$20 //' '
+//	stx LABELS.screenram + 9*40 + i
+//	sta LABELS.screenram + 9*40 + i + 1
+//	ldx #$a0 // reverse space
+//	stx LABELS.screenram + 9*40 + i + 2
+//	stx LABELS.screenram + 9*40 + i + 3
+//	sty LABELS.screenram + 9*40 + i + 4
+//	ldx #$20 //' '
+//	stx LABELS.screenram + 9*40 + i + 5
+//	}
+
+//ldx #$a0 // reverse space
+
+//.for(var i=0; i<40; i+=6) {
+//	sta LABELS.screenram + 10*40 + i
+//	stx LABELS.screenram + 10*40 + i + 1
+//	stx LABELS.screenram + 10*40 + i + 2
+//	stx LABELS.screenram + 10*40 + i + 3
+//	stx LABELS.screenram + 10*40 + i + 4
+//	sty LABELS.screenram + 10*40 + i + 5
+//	}
 
 // set hilltop2 colours
 lda #GREY
@@ -199,20 +218,30 @@ lda #$20 // space
 
 
 // clear the hud
-lda #$20 // space
-.for(var j=22; j<25; j++){
-	.for(var i=0; i<40; i++) {
-		sta LABELS.screenram + j*40 + i
-	}
-}
+//lda #$20 // space
+//.for(var j=22; j<25; j++){
+//	.for(var i=0; i<40; i++) {
+//		sta LABELS.screenram + j*40 + i
+//	}
+//}
 
 // set hud text
-ldx #$27
-huddraw:
-lda hudtext,x
-sta LABELS.screenram + 23 * 40, x
+//ldx #$27
+//huddraw:
+//lda hudtext,x
+//sta LABELS.screenram + 23 * 40, x
+//dex
+//bne huddraw
+
+// load hud data
+ldx #119
+hudnextchar:
+lda maphud,x
+sta [LABELS.screenram + [22*40]],x
 dex
-bne huddraw
+bpl hudnextchar
+
+
 
 // colour the temperature gauge
 // RRRYYYYGGGGG
@@ -377,8 +406,8 @@ sta LABELS.sprcolour + 3
 rts
 
 
-hudtext:
-	 .text "  temp:               cash:             "
+//hudtext:
+//	 .text "  temp:               cash:             "
 
 // hud temp chars - blank to full
 // 32, 101, 116, 117, 97, 246, 231, 234, 160
