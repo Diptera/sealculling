@@ -202,9 +202,9 @@ ice:
   	sta LABELS.sprY + 8
 
 
-	lda #<ocean   // Push next interrupt routine address for when we're done
+	lda #<shore   // Push next interrupt routine address for when we're done
 	sta LABELS.loirq
-	lda #>ocean
+	lda #>shore
 	sta LABELS.hiirq
 	lda #[50 + [19 * 8] ]    	// Next IRQ is for the top again
 	sta LABELS.loraster
@@ -216,7 +216,7 @@ ice:
 	rti
 
 
-ocean:
+shore:
 	storestate()
 
 	lda #BLUE   
@@ -226,15 +226,15 @@ ocean:
   	sta LABELS.sprcolour + 4  // right edge fade
 
 	// temp reset hscroll until this one gets its own
-	lda LABELS.viccontrol2
-	and #%11111000
-	//ora scrollpos_hilltop1
-	nop // allow raster to get to end of line before setting hscroll
-	nop
-	nop 
-	nop 
-	nop 
-	sta LABELS.viccontrol2
+//	lda LABELS.viccontrol2
+//	and #%11111000
+//	//ora scrollpos_hilltop1
+//	nop // allow raster to get to end of line before setting hscroll
+//	nop
+//	nop 
+//	nop 
+//	nop 
+//	sta LABELS.viccontrol2
 
 
   	// relocate edge fade sprite
@@ -251,6 +251,47 @@ ocean:
 
 
 
+	lda #<ocean   // Push next interrupt routine address for when we're done
+	sta LABELS.loirq
+	lda #>ocean
+	sta LABELS.hiirq
+	lda #[50 + [21 * 8]]	   	// Next IRQ line
+	sta LABELS.loraster
+
+	lda #$ff        // Acknowlege IRQ 
+	sta LABELS.interruptR
+
+	restorestate()
+	rti
+
+
+ocean:
+	storestate()
+
+	lda #BLUE   
+	sta LABELS.border
+ 	sta LABELS.background
+  	sta LABELS.sprcolour + 0  // left edge fade sprite
+  	sta LABELS.sprcolour + 4  // right edge fade
+
+	// temp reset hscroll until this one gets its own
+	lda LABELS.viccontrol2
+	and #%11111000
+	//ora scrollpos_hilltop1
+	nop // allow raster to get to end of line before setting hscroll
+	nop
+	nop 
+	nop 
+	nop 
+	sta LABELS.viccontrol2
+
+  	// relocate edge fade sprite
+//  	lda #93 + 21 + 87
+//  	sta LABELS.sprY	+ 0
+//  	sta LABELS.sprY + 8
+
+
+
 	lda #<hud   // Push next interrupt routine address for when we're done
 	sta LABELS.loirq
 	lda #>hud
@@ -263,6 +304,7 @@ ocean:
 
 	restorestate()
 	rti
+
 
 
 hud:

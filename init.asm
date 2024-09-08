@@ -183,21 +183,6 @@ lda #GREY
 }
 
 
-
-
-
-
-jsr SCROLL.redrawicechars
-
-// set ice colours
-lda #BLACK
-.for(var j=11; j<19; j++){
-	.for(var i=0; i<40; i++) {
-		sta LABELS.screencolourram + j*40 + i
-	}
-}
-
-
 // clear the sky
 lda #$20 // space
 .for(var j=0; j<6; j++){
@@ -214,6 +199,37 @@ lda #$20 // space
 		sta LABELS.screenram + j*40 + i
 	}
 }
+
+
+jsr SCROLL.redrawicechars
+
+// set ice colours
+lda #BLACK
+.for(var j=11; j<19; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screencolourram + j*40 + i
+	}
+}
+
+
+
+
+
+// set shore colours
+//lda #WHITE
+//.for(var j=19; j<201; j++){
+//	.for(var i=0; i<40; i++) {
+//		sta LABELS.screencolourram + j*40 + i
+//	}
+//}
+
+
+ldx #39
+lda #WHITE
+nextshorecharcolour:
+sta LABELS.screencolourram + [19*40], x
+dex
+bpl nextshorecharcolour
 
 
 
