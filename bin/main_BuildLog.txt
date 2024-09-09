@@ -1,5 +1,4 @@
 Output dir: C:\docs\repos\sealculling\bin
-User Arguments: afo=true
 parsing
 flex pass 1
 flex pass 2

@@ -89,7 +89,21 @@ rts
 // sprite data - 21 bits high, 24 wide
 
 *=$6000 "Sprite data" // put sprite data at 8192 (128th * 64)
+.import binary "sealsprites.raw"
 
+/*
+	00 sun
+	01 player
+	02 cloud
+	03 left fade
+	04 right fade
+	05 seal
+	06 blank
+*/
+
+
+
+/*
 // sun
 .byte %00000000, %01111110, %00000000
 .byte %00000011, %11111111, %11000000
@@ -262,7 +276,7 @@ rts
 .byte %00000000, %00000000, %00000000
 .byte %00000000, %00000000, %00000000
 .byte %00000000	// pad to 64 bytes
-
+*/
 
 
 //----------------------------------------------------------
