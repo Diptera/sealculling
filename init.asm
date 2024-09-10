@@ -78,6 +78,7 @@ sta LABELS.viccontrol2
 
 
 
+drawscrn:
 
 // clear the sky
 lda #$20 // space
@@ -189,9 +190,8 @@ sta LABELS.screencolourram + [23 * 40] + 20
 
 
 
-
+setcntrs:
 // set counters
-
 
 // overwrite the calculated sunsteps to set X=0 and Y=50
 // will allow us to reuse the sprite further down the screen
@@ -222,7 +222,7 @@ sta ZP.current_seals
 
 
 
-
+setsprites:
 // Enable sprites and set pointers
 
 // left border fade
@@ -336,11 +336,7 @@ lda #YELLOW
 sta LABELS.sprcolour + 7
 
 
-
-
 rts
-
-
 
 }
 

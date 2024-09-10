@@ -6,8 +6,11 @@
   .label init=$835
   .label hudnextchar=$1299
   .label setnightsunpos=$12d3
+  .label drawscrn=$892
   .label nextshorecharcolour=$119f
+  .label setsprites=$12f2
   .label hilltop2nextchar=$c63
+  .label setcntrs=$12cf
   .label hilltop1nextchar=$b66
 }
 .label maphill1=$7000
@@ -69,24 +72,24 @@
   .label endjoystick=$15e0
 }
 .label TOD=$2881 {
-  .label skycolcheck6=$28f5
   .label setskycol=$2917
   .label sunendmsb2=$28b6
-  .label skycolcheck5=$28ea
-  .label skycolcheck8=$290f
-  .label skycolcheck7=$2902
-  .label skycolcheck2=$28c9
   .label sunendmsb=$28b3
-  .label skycolcheck4=$28e1
-  .label skycolcheck3=$28d6
   .label tod=$2881
+  .label domvsun=$288a
   .label sunmsboff=$28a8
+  .label skycolchk8=$290f
   .label nexttempchar=$292e
-  .label notemptick=$2951
+  .label skycolchk7=$2902
+  .label nomvsun=$2920
   .label drawfull=$2942
-  .label domovesun=$288a
+  .label notemptck=$2951
   .label plottempchar=$2948
-  .label nomovesun=$2920
+  .label skycolchk2=$28c9
+  .label skycolchk4=$28e1
+  .label skycolchk3=$28d6
+  .label skycolchk6=$28f5
+  .label skycolchk5=$28ea
   .label plottempend=$2951
   .label playertemperaturechars=$2b52
   .label sunx=$2a52

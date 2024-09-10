@@ -9,9 +9,9 @@ TOD: {
 	// check if time to move the sun
 	lda ZP.general_counter
 	and #%00000111
-	beq domovesun
-	jmp nomovesun
-	domovesun:
+	beq domvsun
+	jmp nomvsun
+	domvsun:
 	// move the sun
 	inc ZP.sunpos
 	ldx ZP.sunpos
@@ -47,52 +47,52 @@ TOD: {
 
 	lda ZP.sunpos
 	cmp #$e0
-	bne skycolcheck2
+	bne skycolchk2
 	lda #DARK_GREY
 	ldx #RED
 	ldy #GREY
 	jmp setskycol
-	skycolcheck2:
+	skycolchk2:
 	cmp #$f0
-	bne skycolcheck3
+	bne skycolchk3
 	lda #BLUE
 	ldx #RED
 	ldy #LIGHT_GREY
 	jmp setskycol
-	skycolcheck3:
+	skycolchk3:
 	cmp #$00
-	bne skycolcheck4
+	bne skycolchk4
 	lda #PURPLE
 	ldx #ORANGE
 	jmp setskycol
-	skycolcheck4:
+	skycolchk4:
 	cmp #$10
-	bne skycolcheck5
+	bne skycolchk5
 	lda #LIGHT_BLUE
 	jmp setskycol
-	skycolcheck5:
+	skycolchk5:
 	cmp #$70
-	bne skycolcheck6
+	bne skycolchk6
 	lda #PURPLE
 	ldx #ORANGE
 	jmp setskycol
-	skycolcheck6:
+	skycolchk6:
 	cmp #$80
-	bne skycolcheck7
+	bne skycolchk7
 	lda #BLUE
 	ldx #RED
 	ldy #LIGHT_GREY
 	jmp setskycol
-	skycolcheck7:
+	skycolchk7:
 	cmp #$90
-	bne skycolcheck8
+	bne skycolchk8
 	lda #DARK_GREY
 	ldx #RED
 	ldy #GREY
 	jmp setskycol
-	skycolcheck8:
+	skycolchk8:
 	cmp #$a0
-	bne nomovesun
+	bne nomvsun
 	lda #BLACK
 	ldy #DARK_GREY
 	setskycol:
@@ -101,13 +101,13 @@ TOD: {
 	stx LABELS.sprcolour + 7
 	sty IRQ.icecol + 1
  //black  dg  db purp      lb    purp  db   dg  purple    black
-	nomovesun:
+	nomvsun:
 
 
 
 	// tick player temp down
 	dec ZP.playertemperaturetick
-	bpl notemptick  
+	bpl notemptck  
 	lda #50
 	sta ZP.playertemperaturetick
 	dec ZP.playertemperature
@@ -142,7 +142,7 @@ TOD: {
 	cpx #12
 	bne nexttempchar
 	plottempend:
-	notemptick:
+	notemptck:
 
 /*
 	6f and 6e draw same
