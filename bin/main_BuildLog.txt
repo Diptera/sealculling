@@ -1,4 +1,5 @@
 Output dir: C:\docs\repos\sealculling\bin
+User Arguments: afo=true
 parsing
 flex pass 1
 flex pass 2
@@ -8,18 +9,18 @@ Writing prg file: C:\docs\repos\sealculling\bin\main.prg
 Memory Map
 ----------
 Default-segment:
-  *$0002-$001a Unnamed
+  *$0002-$001c ZP
   $0801-$080d BASIC
   $080e-$0834 Assembly code
-  $0835-$1418 Init
-  $1419-$1612 IRQs
-  $1613-$165d joystick.asm
-  $165e-$16fa scrolls
-  $16fb-$18db scrollhill1charsleft
-  $18dc-$1bac scrollhill2colourleft
-  $1bad-$28f9 redrawicechars
-  $28fa-$2aca tod
-  $2acb-$2bd4 sunx
+  $0835-$13a8 Init
+  $13a9-$1599 IRQs
+  $159a-$15e4 joystick.asm
+  $15e5-$1681 scrolls
+  $1682-$1862 scrollhill1charsleft
+  $1863-$1b33 scrollhill2colourleft
+  $1b34-$2880 redrawicechars
+  $2881-$2a51 tod
+  $2a52-$2b5b sunx
   $4800-$4fff charset
   $6000-$61bf Sprite data
   $7000-$7a3f Maps

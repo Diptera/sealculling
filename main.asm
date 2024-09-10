@@ -50,9 +50,9 @@ mainloop:
 
 	// draw player
 	lda ZP.playerx
-	sta [LABELS.sprXLO + 2]
+	sta [LABELS.sprXLO + 4]
 	lda ZP.playery
-	sta [LABELS.sprY + 2]
+	sta [LABELS.sprY + 4]
 
 
 	jsr JOYSTICK.processjoystick

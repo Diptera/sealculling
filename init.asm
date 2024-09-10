@@ -76,111 +76,7 @@ and #%11110111
 sta LABELS.viccontrol2
 
 
-// set hilltop1 (row 6-7) chars 
-// /\
-///  \
-//lda #$e9 //'/'
-//ldx #$20 //' '
-//ldy #$df //'\'
 
-// load hilltop1 data
-ldx #79
-hilltop1nextchar:
-lda maphill1,x
-sta [LABELS.screenram + [6*40]],x
-dex
-bpl hilltop1nextchar
-
-
-//.for(var i=0; i<40; i+=4) {
-//	stx LABELS.screenram + 6*40 + i
-//	sta LABELS.screenram + 6*40 + i + 1
-//	sty LABELS.screenram + 6*40 + i + 2
-//	stx LABELS.screenram + 6*40 + i + 3
-//	}
-
-//ldx #$a0 // reverse space
-
-//.for(var i=0; i<40; i+=4) {
-//	sta LABELS.screenram + 7*40 + i
-//	stx LABELS.screenram + 7*40 + i + 1
-//	stx LABELS.screenram + 7*40 + i + 2
-//	sty LABELS.screenram + 7*40 + i + 3
-//	}
-
-
-// set hilltop1 colours
-lda #DARK_GREY
-.for(var j=6; j<8; j++){
-	.for(var i=0; i<40; i++) {
-		sta LABELS.screencolourram + j*40 + i
-	}
-}
-
-
-
-
-
-// set hilltop2 (row 8-10) chars 
-//  /\
-// /  \
-///    \
-//lda #$e9 //'/'
-//ldx #$20 //' '
-//ldy #$df //'\'
-
-
-// loadhilltop2 data
-ldx #119
-hilltop2nextchar:
-lda maphill2,x
-sta [LABELS.screenram + [8*40]],x
-dex
-bpl hilltop2nextchar
-
-
-
-//.for(var i=0; i<37; i+=6) {
-//	stx LABELS.screenram + 8*40 + i
-//	stx LABELS.screenram + 8*40 + i + 1
-//	sta LABELS.screenram + 8*40 + i + 2
-//	sty LABELS.screenram + 8*40 + i + 3
-//	stx LABELS.screenram + 8*40 + i + 4
-//	stx LABELS.screenram + 8*40 + i + 5
-//	}
-
-//ldx #$a0 // reverse space
-
-//.for(var i=0; i<37; i+=6) {
-//	ldx #$20 //' '
-//	stx LABELS.screenram + 9*40 + i
-//	sta LABELS.screenram + 9*40 + i + 1
-//	ldx #$a0 // reverse space
-//	stx LABELS.screenram + 9*40 + i + 2
-//	stx LABELS.screenram + 9*40 + i + 3
-//	sty LABELS.screenram + 9*40 + i + 4
-//	ldx #$20 //' '
-//	stx LABELS.screenram + 9*40 + i + 5
-//	}
-
-//ldx #$a0 // reverse space
-
-//.for(var i=0; i<40; i+=6) {
-//	sta LABELS.screenram + 10*40 + i
-//	stx LABELS.screenram + 10*40 + i + 1
-//	stx LABELS.screenram + 10*40 + i + 2
-//	stx LABELS.screenram + 10*40 + i + 3
-//	stx LABELS.screenram + 10*40 + i + 4
-//	sty LABELS.screenram + 10*40 + i + 5
-//	}
-
-// set hilltop2 colours
-lda #GREY
-.for(var j=8; j<11; j++){
-	.for(var i=0; i<40; i++) {
-		sta LABELS.screencolourram + j*40 + i
-	}
-}
 
 
 // clear the sky
@@ -192,11 +88,37 @@ lda #$20 // space
 }
 
 
-// clear the ocean
-lda #$20 // space
-.for(var j=19; j<22; j++){
+// load hilltop1 data
+ldx #79
+hilltop1nextchar:
+lda maphill1,x
+sta [LABELS.screenram + [6*40]],x
+dex
+bpl hilltop1nextchar
+
+
+// set hilltop1 colours
+lda #DARK_GREY
+.for(var j=6; j<8; j++){
 	.for(var i=0; i<40; i++) {
-		sta LABELS.screenram + j*40 + i
+		sta LABELS.screencolourram + j*40 + i
+	}
+}
+
+
+// loadhilltop2 data
+ldx #119
+hilltop2nextchar:
+lda maphill2,x
+sta [LABELS.screenram + [8*40]],x
+dex
+bpl hilltop2nextchar
+
+// set hilltop2 colours
+lda #GREY
+.for(var j=8; j<11; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screencolourram + j*40 + i
 	}
 }
 
@@ -212,20 +134,9 @@ lda #BLACK
 }
 
 
-
-
-
 // set shore colours
-//lda #WHITE
-//.for(var j=19; j<201; j++){
-//	.for(var i=0; i<40; i++) {
-//		sta LABELS.screencolourram + j*40 + i
-//	}
-//}
-
-
 ldx #39
-lda #WHITE
+lda #BLUE
 nextshorecharcolour:
 sta LABELS.screencolourram + [19*40], x
 dex
@@ -233,21 +144,15 @@ bpl nextshorecharcolour
 
 
 
-// clear the hud
-//lda #$20 // space
-//.for(var j=22; j<25; j++){
-//	.for(var i=0; i<40; i++) {
-//		sta LABELS.screenram + j*40 + i
-//	}
-//}
+// clear the ocean
+lda #$20 // space
+.for(var j=20; j<22; j++){
+	.for(var i=0; i<40; i++) {
+		sta LABELS.screenram + j*40 + i
+	}
+}
 
-// set hud text
-//ldx #$27
-//huddraw:
-//lda hudtext,x
-//sta LABELS.screenram + 23 * 40, x
-//dex
-//bne huddraw
+
 
 // load hud data
 ldx #119
@@ -282,6 +187,12 @@ sta LABELS.screencolourram + [23 * 40] + 20
 //.break
 
 
+
+
+
+// set counters
+
+
 // overwrite the calculated sunsteps to set X=0 and Y=50
 // will allow us to reuse the sprite further down the screen
 ldx #$85
@@ -294,7 +205,6 @@ cpx #$fb
 bne setnightsunpos
 
 
-
 lda #00
 sta ZP.suncycle
 
@@ -304,8 +214,16 @@ lda #01 	// 1 so that it ticks immediately and triggers redraw
 sta ZP.playertemperaturetick
 
 
+lda #02
+sta ZP.max_seals
 
-// Enable sprite and set pointer
+lda #00
+sta ZP.current_seals
+
+
+
+
+// Enable sprites and set pointers
 
 // left border fade
 lda LABELS.sprEnableR
@@ -316,9 +234,30 @@ sta LABELS.sprPointerR
 
 // right border fade
 lda LABELS.sprEnableR
-ora #%00010000
+ora #%00000010
 sta LABELS.sprEnableR
 lda #$84
+sta LABELS.sprPointerR + 1
+
+// player
+lda LABELS.sprEnableR
+ora #%00000100
+sta LABELS.sprEnableR
+lda #$81
+sta LABELS.sprPointerR + 2
+
+// cloud1
+lda LABELS.sprEnableR
+ora #%00001000
+sta LABELS.sprEnableR
+lda #$82
+sta LABELS.sprPointerR + 3
+
+// cloud2
+lda LABELS.sprEnableR
+ora #%00010000
+sta LABELS.sprEnableR
+lda #$82
 sta LABELS.sprPointerR + 4
 
 
@@ -334,27 +273,8 @@ lda LABELS.sprPriorityR
 ora #%10000000
 sta LABELS.sprPriorityR
 
-// player
-lda LABELS.sprEnableR
-ora #%00000010
-sta LABELS.sprEnableR
-lda #$81
-sta LABELS.sprPointerR + 1
 
 
-// cloud1
-lda LABELS.sprEnableR
-ora #%00000100
-sta LABELS.sprEnableR
-lda #$82
-sta LABELS.sprPointerR + 2
-
-// cloud2
-lda LABELS.sprEnableR
-ora #%00001000
-sta LABELS.sprEnableR
-lda #$82
-sta LABELS.sprPointerR + 3
 
 
 
@@ -370,12 +290,38 @@ sta LABELS.sprcolour + 0
 
 
 // right border fade
-lda #55
-sta LABELS.sprXLO + 8
+lda #56  //55
+sta LABELS.sprXLO + 2
 lda LABELS.sprXHIbitsR
-ora #%00010000
+ora #%00000010
 sta LABELS.sprXHIbitsR
 lda #93
+sta LABELS.sprY + 2
+lda #WHITE
+sta LABELS.sprcolour + 1
+
+
+//player
+lda #100
+sta ZP.playerx
+lda #166
+sta ZP.playery
+lda #LIGHT_RED
+sta LABELS.sprcolour + 2
+//.break
+
+//cloud1
+lda #180
+sta LABELS.sprXLO + 6
+lda #60
+sta LABELS.sprY + 6
+lda #WHITE
+sta LABELS.sprcolour + 3
+
+//cloud2
+lda #83
+sta LABELS.sprXLO + 8
+lda #67
 sta LABELS.sprY + 8
 lda #WHITE
 sta LABELS.sprcolour + 4
@@ -389,47 +335,11 @@ sta LABELS.sprY + 14
 lda #YELLOW
 sta LABELS.sprcolour + 7
 
-//player
-lda #100
-sta ZP.playerx
-lda #166
-sta ZP.playery
-lda #LIGHT_RED
-sta LABELS.sprcolour + 1
-//.break
-
-//cloud1
-lda #180
-sta LABELS.sprXLO + 4
-lda #60
-sta LABELS.sprY + 4
-lda #WHITE
-sta LABELS.sprcolour + 2
-
-//cloud2
-lda #83
-sta LABELS.sprXLO + 6
-lda #67
-sta LABELS.sprY + 6
-lda #WHITE
-sta LABELS.sprcolour + 3
-
-
-
 
 
 
 rts
 
-
-//hudtext:
-//	 .text "  temp:               cash:             "
-
-// hud temp chars - blank to full
-// 32, 101, 116, 117, 97, 246, 231, 234, 160
-// 13 char spaces * 8 pixels = $74
-
-// RRRYYYYGGGGG
 
 
 }

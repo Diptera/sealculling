@@ -1,6 +1,6 @@
 // zp items
 
-*=$02 virtual
+*=$02 "ZP" virtual
 
 ZP: {
 
@@ -62,6 +62,15 @@ playertemperature:  // health of player
 	.byte 0
 playertemperaturetick:  // ticks until health drops 1
 	.byte 0, 0
+
+
+max_seals:		// max number of seals that can be spawned concurrently
+	.byte 0
+current_seals:	// current number of seals
+	.byte 0
+
+
+
 
 }
 

@@ -68,12 +68,12 @@ sky:
 	sta LABELS.border
 	sta LABELS.background
 	sta LABELS.sprcolour + 0  // left edge fade sprite
-	sta LABELS.sprcolour + 4 // right edge fade
+	sta LABELS.sprcolour + 1 // right edge fade
 
   	// relocate edge fade sprite
   	lda #93
   	sta LABELS.sprY	+ 0
-  	sta LABELS.sprY + 8
+  	sta LABELS.sprY + 2
 
 
 
@@ -130,7 +130,7 @@ hilltop2:
   	sta LABELS.border
   	sta LABELS.background
   	sta LABELS.sprcolour + 0  // left edge fade sprite
-  	sta LABELS.sprcolour + 4  // right edge fade
+  	sta LABELS.sprcolour + 1  // right edge fade
 
 	// update screen hscroll
 	lda LABELS.viccontrol2
@@ -158,7 +158,7 @@ hilltop2:
   	// relocate edge fade sprite
   	lda #93 + 21 + 2
   	sta LABELS.sprY	+ 0
-  	sta LABELS.sprY + 8
+  	sta LABELS.sprY + 2
 
 
 	lda #<ice   // Push next interrupt routine address for when we're done
@@ -183,7 +183,7 @@ ice:
  	sta LABELS.border	
   	sta LABELS.background
   	sta LABELS.sprcolour + 0  // left edge fade sprite
-  	sta LABELS.sprcolour + 4  // right edge fade
+  	sta LABELS.sprcolour + 1  // right edge fade
 
 	// update hscroll pos
 	lda LABELS.viccontrol2
@@ -199,7 +199,7 @@ ice:
   	// relocate edge fade sprite
   	lda #93 + 21 + 66
   	sta LABELS.sprY	+ 0
-  	sta LABELS.sprY + 8
+  	sta LABELS.sprY + 2
 
 
 	lda #<shore   // Push next interrupt routine address for when we're done
@@ -221,9 +221,10 @@ shore:
 
 	lda #BLUE   
 	sta LABELS.border
-  	sta LABELS.background
+  	//sta LABELS.background
+  	//lda #GREEN
   	sta LABELS.sprcolour + 0  // left edge fade sprite
-  	sta LABELS.sprcolour + 4  // right edge fade
+  	sta LABELS.sprcolour + 1  // right edge fade
 
 	// temp reset hscroll until this one gets its own
 //	lda LABELS.viccontrol2
@@ -238,9 +239,9 @@ shore:
 
 
   	// relocate edge fade sprite
-  	lda #93 + 21 + 87
+  	lda #93 + 21 + 66 + 21 + 1
   	sta LABELS.sprY	+ 0
-  	sta LABELS.sprY + 8
+  	sta LABELS.sprY + 2
 
   	// put the sun back where it belongs
   	lda ZP.sunx
@@ -255,7 +256,7 @@ shore:
 	sta LABELS.loirq
 	lda #>ocean
 	sta LABELS.hiirq
-	lda #[50 + [21 * 8]]	   	// Next IRQ line
+	lda #[50 + [20 * 8]]	   	// Next IRQ line
 	sta LABELS.loraster
 
 	lda #$ff        // Acknowlege IRQ 
@@ -271,8 +272,8 @@ ocean:
 	lda #BLUE   
 	sta LABELS.border
  	sta LABELS.background
-  	sta LABELS.sprcolour + 0  // left edge fade sprite
-  	sta LABELS.sprcolour + 4  // right edge fade
+  	//sta LABELS.sprcolour + 0  // left edge fade sprite
+  	//sta LABELS.sprcolour + 4  // right edge fade
 
 	// temp reset hscroll until this one gets its own
 	lda LABELS.viccontrol2

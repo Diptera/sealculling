@@ -4,32 +4,32 @@
 .label maphud=$79c8
 .label INIT=$835 {
   .label init=$835
-  .label hudnextchar=$1311
-  .label setnightsunpos=$134b
-  .label nextshorecharcolour=$1309
-  .label hilltop2nextchar=$991
-  .label hilltop1nextchar=$894
+  .label hudnextchar=$1299
+  .label setnightsunpos=$12d3
+  .label nextshorecharcolour=$119f
+  .label hilltop2nextchar=$c63
+  .label hilltop1nextchar=$b66
 }
 .label maphill1=$7000
 .label maphill2=$7050
 .label mapice=$70c8
-.label SCROLL=$165e {
-  .label scrollhill1charsleft=$16fb
-  .label doscrolliceleft=$1690
-  .label mainscroll=$165e
-  .label scrollhill2charsleft=$18dc
-  .label scrollleft=$1666
-  .label noscrollhill1left=$1679
-  .label noscrolliceleft=$16a1
-  .label scrollright=$16a6
-  .label noscrolliceright=$16f6
-  .label noscrollhill1right=$16c0
-  .label noscrollhill2right=$16da
-  .label scrollhill1charsright=$2448
-  .label noscrollhill2left=$168c
-  .label scrollhill2charsright=$2629
-  .label doscrollice2left=$1698
-  .label redrawicechars=$1bad
+.label SCROLL=$15e5 {
+  .label scrollhill1charsleft=$1682
+  .label doscrolliceleft=$1617
+  .label mainscroll=$15e5
+  .label scrollhill2charsleft=$1863
+  .label scrollleft=$15ed
+  .label noscrollhill1left=$1600
+  .label noscrolliceleft=$1628
+  .label scrollright=$162d
+  .label noscrolliceright=$167d
+  .label noscrollhill1right=$1647
+  .label noscrollhill2right=$1661
+  .label scrollhill1charsright=$23cf
+  .label noscrollhill2left=$1613
+  .label scrollhill2charsright=$25b0
+  .label doscrollice2left=$161f
+  .label redrawicechars=$1b34
 }
 .label ZP=$2 {
   .label gameloop=$2
@@ -39,6 +39,7 @@
   .label scrollercounteroriginal_hilltop1=$6
   .label scrollercounteroriginal_ice=$c
   .label playery=$11
+  .label current_seals=$1c
   .label joystick2=$e
   .label joystick1=$f
   .label scrollpos_ice=$a
@@ -48,6 +49,7 @@
   .label scrollercounter_hilltop1=$5
   .label suncycle=$13
   .label sunx=$16
+  .label max_seals=$1b
   .label scrollercounter_hilltop2=$8
   .label mapicepos=$12
   .label scrollpos_hilltop2=$7
@@ -55,61 +57,61 @@
   .label scrollpos_hilltop1=$4
   .label playertemperature=$18
 }
-.label JOYSTICK=$1613 {
-  .label actionleft=$162d
-  .label checkleft=$1618
-  .label noaction=$162a
-  .label checkright=$1621
-  .label moveplayerright=$1656
-  .label actionright=$1643
-  .label processjoystick=$1613
-  .label moveplayerleft=$1640
-  .label endjoystick=$1659
+.label JOYSTICK=$159a {
+  .label actionleft=$15b4
+  .label checkleft=$159f
+  .label noaction=$15b1
+  .label checkright=$15a8
+  .label moveplayerright=$15dd
+  .label actionright=$15ca
+  .label processjoystick=$159a
+  .label moveplayerleft=$15c7
+  .label endjoystick=$15e0
 }
-.label TOD=$28fa {
-  .label skycolcheck6=$296e
-  .label setskycol=$2990
-  .label sunendmsb2=$292f
-  .label skycolcheck5=$2963
-  .label skycolcheck8=$2988
-  .label skycolcheck7=$297b
-  .label skycolcheck2=$2942
-  .label sunendmsb=$292c
-  .label skycolcheck4=$295a
-  .label skycolcheck3=$294f
-  .label tod=$28fa
-  .label sunmsboff=$2921
-  .label nexttempchar=$29a7
-  .label notemptick=$29ca
-  .label drawfull=$29bb
-  .label domovesun=$2903
-  .label plottempchar=$29c1
-  .label nomovesun=$2999
-  .label plottempend=$29ca
-  .label playertemperaturechars=$2bcb
-  .label sunx=$2acb
-  .label sunsteps=$29cb
-  .label suny=$29cb
+.label TOD=$2881 {
+  .label skycolcheck6=$28f5
+  .label setskycol=$2917
+  .label sunendmsb2=$28b6
+  .label skycolcheck5=$28ea
+  .label skycolcheck8=$290f
+  .label skycolcheck7=$2902
+  .label skycolcheck2=$28c9
+  .label sunendmsb=$28b3
+  .label skycolcheck4=$28e1
+  .label skycolcheck3=$28d6
+  .label tod=$2881
+  .label sunmsboff=$28a8
+  .label nexttempchar=$292e
+  .label notemptick=$2951
+  .label drawfull=$2942
+  .label domovesun=$288a
+  .label plottempchar=$2948
+  .label nomovesun=$2920
+  .label plottempend=$2951
+  .label playertemperaturechars=$2b52
+  .label sunx=$2a52
+  .label sunsteps=$2952
+  .label suny=$2952
 }
-.label IRQ=$1419 {
-  .label sky=$1471 {
+.label IRQ=$13a9 {
+  .label sky=$1401 {
   }
-  .label hilltop1=$14a6 {
+  .label hilltop1=$1436 {
   }
-  .label hilltop2=$14d2 {
+  .label hilltop2=$1462 {
   }
-  .label ocean=$15b2 {
+  .label ocean=$153f {
   }
-  .label skycol=$1476
-  .label hud=$15ec {
+  .label skycol=$1406
+  .label hud=$1573 {
   }
-  .label irqinit=$1419
-  .label shore=$1570 {
+  .label irqinit=$13a9
+  .label shore=$1500 {
   }
-  .label ice=$152d {
+  .label ice=$14bd {
   }
-  .label icecol=$1532
-  .label vblank=$1446 {
+  .label icecol=$14c2
+  .label vblank=$13d6 {
   }
 }
 .label LABELS=$2000 {
